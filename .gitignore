@@ -1,0 +1,6 @@
+.DS_Store
+build/
+lib/preprocessor_prefix.h
+lib/private_headers.h
+Pods/Documentation/
+xcuserdata/

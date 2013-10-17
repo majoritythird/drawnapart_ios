@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A8577DFA-CDA5-40B7-BAE3-6AE3525A9D76</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Budgee</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>75B91EA4-60A7-4415-B637-9F67FD6574AD</key>
+		<string>ssh://github.com/majoritythird/budgee_ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Budgee.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>75B91EA4-60A7-4415-B637-9F67FD6574AD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/majoritythird/budgee_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>75B91EA4-60A7-4415-B637-9F67FD6574AD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>75B91EA4-60A7-4415-B637-9F67FD6574AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>budgee_ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>
