@@ -14,4 +14,9 @@
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
   #import <CoreData/CoreData.h>
+
+  // Models
+  #import "Person.h"
+  #import "User.h"
+
 #endif

@@ -23,6 +23,10 @@
 		DE5927C518105C23000B8931 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A918105C23000B8931 /* CoreData.framework */; };
 		DE5927CD18105C24000B8931 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE5927CB18105C24000B8931 /* InfoPlist.strings */; };
 		DE5927CF18105C24000B8931 /* BudgeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5927CE18105C24000B8931 /* BudgeeTests.m */; };
+		DE6952A918108313007C5C76 /* _Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A218108313007C5C76 /* _Person.m */; };
+		DE6952AA18108313007C5C76 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A418108313007C5C76 /* _User.m */; };
+		DE6952AB18108313007C5C76 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A618108313007C5C76 /* Person.m */; };
+		DE6952AC18108313007C5C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A818108313007C5C76 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,14 @@
 		DE5927CA18105C24000B8931 /* BudgeeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BudgeeTests-Info.plist"; sourceTree = "<group>"; };
 		DE5927CC18105C24000B8931 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE5927CE18105C24000B8931 /* BudgeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BudgeeTests.m; sourceTree = "<group>"; };
+		DE6952A118108313007C5C76 /* _Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Person.h; sourceTree = "<group>"; };
+		DE6952A218108313007C5C76 /* _Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Person.m; sourceTree = "<group>"; };
+		DE6952A318108313007C5C76 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		DE6952A418108313007C5C76 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		DE6952A518108313007C5C76 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		DE6952A618108313007C5C76 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		DE6952A718108313007C5C76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		DE6952A818108313007C5C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +137,7 @@
 				DE5927B518105C23000B8931 /* AppDelegate.m */,
 				DE5927B718105C23000B8931 /* Budgee.xcdatamodeld */,
 				DE5927BA18105C23000B8931 /* Images.xcassets */,
+				DE69529818107EA8007C5C76 /* Models */,
 				DE5927AC18105C23000B8931 /* Supporting Files */,
 			);
 			path = Budgee;
@@ -134,9 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				DE5927AD18105C23000B8931 /* Budgee-Info.plist */,
+				DE5927B318105C23000B8931 /* Budgee-Prefix.pch */,
 				DE5927AE18105C23000B8931 /* InfoPlist.strings */,
 				DE5927B118105C23000B8931 /* main.m */,
-				DE5927B318105C23000B8931 /* Budgee-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -157,6 +170,21 @@
 				DE5927CB18105C24000B8931 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DE69529818107EA8007C5C76 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DE6952A118108313007C5C76 /* _Person.h */,
+				DE6952A218108313007C5C76 /* _Person.m */,
+				DE6952A318108313007C5C76 /* _User.h */,
+				DE6952A418108313007C5C76 /* _User.m */,
+				DE6952A518108313007C5C76 /* Person.h */,
+				DE6952A618108313007C5C76 /* Person.m */,
+				DE6952A718108313007C5C76 /* User.h */,
+				DE6952A818108313007C5C76 /* User.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,8 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE6952AB18108313007C5C76 /* Person.m in Sources */,
+				DE6952AC18108313007C5C76 /* User.m in Sources */,
+				DE6952AA18108313007C5C76 /* _User.m in Sources */,
 				DE5927B918105C23000B8931 /* Budgee.xcdatamodeld in Sources */,
 				DE5927B218105C23000B8931 /* main.m in Sources */,
+				DE6952A918108313007C5C76 /* _Person.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
