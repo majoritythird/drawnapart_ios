@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CredentialManager.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // Do we have a currentPerson? (keychain item with authtoken and person id)
+  if ([CredentialManager currentPersonUsingContext:self.managedObjectContext]) {
+    //   Show HomeViewController/BalanceViewController
+    //   Immediately fetch Person
+    //   Success?
+    //     Show the view with the balance, etc.
+    //   Failure?
+    //     Dump auth token.
+    //     Go to the sign in screen.
+  }
+  else {
+    //   Show the sign up view, with sign in option
+  }
+
+
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   // Override point for customization after application launch.
   self.window.backgroundColor = [UIColor whiteColor];

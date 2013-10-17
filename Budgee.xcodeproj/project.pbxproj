@@ -27,6 +27,7 @@
 		DE6952AA18108313007C5C76 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A418108313007C5C76 /* _User.m */; };
 		DE6952AB18108313007C5C76 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A618108313007C5C76 /* Person.m */; };
 		DE6952AC18108313007C5C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A818108313007C5C76 /* User.m */; };
+		DE6952B018109489007C5C76 /* CredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952AF18109489007C5C76 /* CredentialManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		DE6952A618108313007C5C76 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		DE6952A718108313007C5C76 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		DE6952A818108313007C5C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		DE6952AE18109489007C5C76 /* CredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialManager.h; sourceTree = "<group>"; };
+		DE6952AF18109489007C5C76 /* CredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 				DE5927B418105C23000B8931 /* AppDelegate.h */,
 				DE5927B518105C23000B8931 /* AppDelegate.m */,
 				DE5927B718105C23000B8931 /* Budgee.xcdatamodeld */,
+				DE6952AD18109475007C5C76 /* Helpers */,
 				DE5927BA18105C23000B8931 /* Images.xcassets */,
 				DE69529818107EA8007C5C76 /* Models */,
 				DE5927AC18105C23000B8931 /* Supporting Files */,
@@ -185,6 +189,15 @@
 				DE6952A818108313007C5C76 /* User.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		DE6952AD18109475007C5C76 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DE6952AE18109489007C5C76 /* CredentialManager.h */,
+				DE6952AF18109489007C5C76 /* CredentialManager.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +335,7 @@
 				DE6952AC18108313007C5C76 /* User.m in Sources */,
 				DE6952AA18108313007C5C76 /* _User.m in Sources */,
 				DE5927B918105C23000B8931 /* Budgee.xcdatamodeld in Sources */,
+				DE6952B018109489007C5C76 /* CredentialManager.m in Sources */,
 				DE5927B218105C23000B8931 /* main.m in Sources */,
 				DE6952A918108313007C5C76 /* _Person.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
