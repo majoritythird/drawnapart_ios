@@ -49,7 +49,7 @@
 		DE5927B318105C23000B8931 /* Budgee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Budgee-Prefix.pch"; sourceTree = "<group>"; };
 		DE5927B418105C23000B8931 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DE5927B518105C23000B8931 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DE5927B818105C23000B8931 /* Budgee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Budgee.xcdatamodel; sourceTree = "<group>"; };
+		DE5927B818105C23000B8931 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
 		DE5927BA18105C23000B8931 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DE5927C018105C23000B8931 /* BudgeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BudgeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927C118105C23000B8931 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -514,9 +514,9 @@
 		DE5927B718105C23000B8931 /* Budgee.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DE5927B818105C23000B8931 /* Budgee.xcdatamodel */,
+				DE5927B818105C23000B8931 /* v1.xcdatamodel */,
 			);
-			currentVersion = DE5927B818105C23000B8931 /* Budgee.xcdatamodel */;
+			currentVersion = DE5927B818105C23000B8931 /* v1.xcdatamodel */;
 			path = Budgee.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
