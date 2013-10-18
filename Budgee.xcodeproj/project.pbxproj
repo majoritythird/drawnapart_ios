@@ -28,6 +28,8 @@
 		DE6952AB18108313007C5C76 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A618108313007C5C76 /* Person.m */; };
 		DE6952AC18108313007C5C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A818108313007C5C76 /* User.m */; };
 		DE6952B018109489007C5C76 /* CredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952AF18109489007C5C76 /* CredentialManager.m */; };
+		DED24B0E18119436007D8422 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED24B0C18119436007D8422 /* SignUpViewController.m */; };
+		DED24B0F18119436007D8422 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DED24B0D18119436007D8422 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		DE6952A818108313007C5C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DE6952AE18109489007C5C76 /* CredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialManager.h; sourceTree = "<group>"; };
 		DE6952AF18109489007C5C76 /* CredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialManager.m; sourceTree = "<group>"; };
+		DED24B0B18119436007D8422 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		DED24B0C18119436007D8422 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		DED24B0D18119436007D8422 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +148,7 @@
 				DE5927BA18105C23000B8931 /* Images.xcassets */,
 				DE69529818107EA8007C5C76 /* Models */,
 				DE5927AC18105C23000B8931 /* Supporting Files */,
+				DED24B0A1811923B007D8422 /* View Controllers */,
 			);
 			path = Budgee;
 			sourceTree = "<group>";
@@ -198,6 +204,16 @@
 				DE6952AF18109489007C5C76 /* CredentialManager.m */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		DED24B0A1811923B007D8422 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DED24B0B18119436007D8422 /* SignUpViewController.h */,
+				DED24B0C18119436007D8422 /* SignUpViewController.m */,
+				DED24B0D18119436007D8422 /* SignUpViewController.xib */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE5927B018105C23000B8931 /* InfoPlist.strings in Resources */,
+				DED24B0F18119436007D8422 /* SignUpViewController.xib in Resources */,
 				DE5927BB18105C23000B8931 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +356,7 @@
 				DE5927B218105C23000B8931 /* main.m in Sources */,
 				DE6952A918108313007C5C76 /* _Person.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
+				DED24B0E18119436007D8422 /* SignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

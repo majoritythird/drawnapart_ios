@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CredentialManager.h"
+#import "SignUpViewController.h"
 
 @implementation AppDelegate
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.backgroundColor = [UIColor whiteColor];
+
   // Do we have a currentPerson? (keychain item with authtoken and person id)
   if ([CredentialManager currentPersonUsingContext:self.managedObjectContext]) {
     //   Show HomeViewController/BalanceViewController
@@ -29,12 +33,10 @@
   }
   else {
     //   Show the sign up view, with sign in option
+    SignUpViewController *signUpViewController = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
+    self.window.rootViewController = signUpViewController;
   }
 
-
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  // Override point for customization after application launch.
-  self.window.backgroundColor = [UIColor whiteColor];
   [self.window makeKeyAndVisible];
   return YES;
 }
