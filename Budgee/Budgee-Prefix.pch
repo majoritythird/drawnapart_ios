@@ -15,6 +15,9 @@
   #import <Foundation/Foundation.h>
   #import <CoreData/CoreData.h>
 
+  // Pods
+  #import <DVCoreDataFinders/DVCoreDataFinders.h>
+
   // Models
   #import "Person.h"
   #import "User.h"

@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking 3
 
+// DVCoreDataFinders
+#define COCOAPODS_POD_AVAILABLE_DVCoreDataFinders
+#define COCOAPODS_VERSION_MAJOR_DVCoreDataFinders 0
+#define COCOAPODS_VERSION_MINOR_DVCoreDataFinders 5
+#define COCOAPODS_VERSION_PATCH_DVCoreDataFinders 0
+
 // ISO8601DateFormatterValueTransformer
 #define COCOAPODS_POD_AVAILABLE_ISO8601DateFormatterValueTransformer
 #define COCOAPODS_VERSION_MAJOR_ISO8601DateFormatterValueTransformer 0
