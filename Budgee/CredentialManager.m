@@ -29,7 +29,7 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
         if (personIdInfo) {
           NSArray *components = [personIdInfo componentsSeparatedByString:kKeychainPasswordSeparator];
           NSString *personId = components[0];
-          NSString *authToken = components[1];
+//          NSString *authToken = components[1];
 
           _currentPerson = [Person findFirstWhereProperty:@"id" equals:personId inContext:context error:nil];
 

@@ -7,10 +7,13 @@
 //
 
 #import "SignUpViewController.h"
+#import "ApiClient.h"
+#import "SignUp.h"
 
 @interface SignUpViewController ()
 
 @property(nonatomic,weak) IBOutlet UITextField *emailTextField;
+@property(nonatomic,weak) IBOutlet UITextField *nameTextField;
 @property(nonatomic,weak) IBOutlet UITextField *passwordTextField;
 
 @end
@@ -31,7 +34,13 @@
 #pragma mark - Methods
 
 - (IBAction)signUp:(id)sender {
-  
+  NSString *email = self.emailTextField.text;
+  NSString *name = self.nameTextField.text;
+  NSString *password = self.passwordTextField.text;
+
+  SignUp *signUp = [[SignUp alloc] initWithEmail:email name:name password:password];
+
+  [[ApiClient sharedApiClient] signUp:signUp];
 }
 
 #pragma mark - UIViewController

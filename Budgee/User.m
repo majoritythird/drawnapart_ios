@@ -1,15 +1,29 @@
+//
+//  User.m
+//  Budgee
+//
+//  Created by Wes Gibbs on 10/18/13.
+//  Copyright (c) 2013 Wes Gibbs. All rights reserved.
+//
+
 #import "User.h"
 
-
 @interface User ()
-
-// Private interface goes here.
 
 @end
 
 
 @implementation User
 
-// Custom logic goes here.
+#pragma mark - Class methods
+
++ (RKEntityMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)managedObjectStore
+{
+  RKEntityMapping *userMapping = [RKEntityMapping mappingForEntityForName:@"User" inManagedObjectStore:managedObjectStore];
+  [userMapping addAttributeMappingsFromArray:@[@"email", @"id"]];
+  userMapping.identificationAttributes = @[@"id"];
+
+  return userMapping;
+}
 
 @end
