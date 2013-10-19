@@ -17,6 +17,8 @@
 
   // Pods
   #import <DVCoreDataFinders/DVCoreDataFinders.h>
+  #import <MobileCoreServices/MobileCoreServices.h>
+  #import <SystemConfiguration/SystemConfiguration.h>
 
   // Models
   #import "Person.h"
