@@ -9,6 +9,7 @@
 #import <RestKit/RestKit.h>
 #import "ApiClient.h"
 #import "AppDelegate.h"
+#import "CredentialManager.h"
 
 static ApiClient *_sharedApiClient = nil;
 
@@ -52,6 +53,20 @@ static ApiClient *_sharedApiClient = nil;
 
 #pragma mark - Methods
 
+- (NSString *)authenticationTokenFromOperation:(RKObjectRequestOperation *)operation
+{
+  NSString *jsonString = operation.HTTPRequestOperation.responseString;
+  NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+
+  return jsonDict[@"user"][@"authentication_token"];
+}
+
+- (void)setCurrentPerson:(Person *)person withAuthenticationTokenFromOperation:(RKObjectRequestOperation *)operation
+{
+  NSString *authToken = [self authenticationTokenFromOperation:operation];
+  [CredentialManager setCurrentPerson:person withAuthenticationToken:authToken];
+}
+
 - (void)signUp:(SignUp *)signUp
 {
   NSURLRequest *request = [self signUpRequest:signUp];
@@ -67,6 +82,8 @@ static ApiClient *_sharedApiClient = nil;
     Person *person = resultDict[@"person"];
     user.person = person;
     [self.context save:nil];
+
+    [self setCurrentPerson:person withAuthenticationTokenFromOperation:operation];
 
     NSLog(@"Mapped the user: %@", user);
     NSLog(@"Mapped the person: %@", person);

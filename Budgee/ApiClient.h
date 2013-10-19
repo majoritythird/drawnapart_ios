@@ -11,6 +11,8 @@
 
 @interface ApiClient : NSObject
 
+@property(nonatomic,strong) NSString *authenticationToken;
+
 + (ApiClient *)sharedApiClient;
 
 - (id)init;

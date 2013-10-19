@@ -12,6 +12,7 @@
 @interface CredentialManager : NSObject
 
 + (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context;
++ (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken;
 
 @property(nonatomic,readonly) NSString *authToken;
 @property(nonatomic,readonly) NSString *email;
