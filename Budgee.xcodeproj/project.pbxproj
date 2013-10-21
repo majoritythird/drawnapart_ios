@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D64BC8E1ADE54186A9D5EE8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54684209C6D64E3A95C36F55 /* libPods.a */; };
 		DE1C10891811E8D100BACC2C /* SignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C10881811E8D100BACC2C /* SignUp.m */; };
+		DE1C108F1812CC4200BACC2C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C108D1812CC4200BACC2C /* HomeViewController.m */; };
+		DE1C10901812CC4200BACC2C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1C108E1812CC4200BACC2C /* HomeViewController.xib */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
 		DE5927A618105C23000B8931 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A518105C23000B8931 /* CoreGraphics.framework */; };
 		DE5927A818105C23000B8931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A718105C23000B8931 /* UIKit.framework */; };
@@ -29,6 +31,8 @@
 		DE6952AB18108313007C5C76 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A618108313007C5C76 /* Person.m */; };
 		DE6952AC18108313007C5C76 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952A818108313007C5C76 /* User.m */; };
 		DE6952B018109489007C5C76 /* CredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DE6952AF18109489007C5C76 /* CredentialManager.m */; };
+		DE78C37E18158403001C868A /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE78C37C18158403001C868A /* SignInViewController.m */; };
+		DE78C37F18158403001C868A /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE78C37D18158403001C868A /* SignInViewController.xib */; };
 		DED24B0E18119436007D8422 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DED24B0C18119436007D8422 /* SignUpViewController.m */; };
 		DED24B0F18119436007D8422 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DED24B0D18119436007D8422 /* SignUpViewController.xib */; };
 		DED24B561811C8B7007D8422 /* ApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DED24B551811C8B7007D8422 /* ApiClient.m */; };
@@ -49,6 +53,9 @@
 		6D68F9B0AE6D4B25ABF42912 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		DE1C10871811E8D100BACC2C /* SignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp.h; sourceTree = "<group>"; };
 		DE1C10881811E8D100BACC2C /* SignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp.m; sourceTree = "<group>"; };
+		DE1C108C1812CC4200BACC2C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		DE1C108D1812CC4200BACC2C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		DE1C108E1812CC4200BACC2C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		DE5927A018105C23000B8931 /* Budgee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927A318105C23000B8931 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE5927A518105C23000B8931 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,6 +84,9 @@
 		DE6952A818108313007C5C76 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		DE6952AE18109489007C5C76 /* CredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialManager.h; sourceTree = "<group>"; };
 		DE6952AF18109489007C5C76 /* CredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialManager.m; sourceTree = "<group>"; };
+		DE78C37B18158403001C868A /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		DE78C37C18158403001C868A /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		DE78C37D18158403001C868A /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		DED24B0B18119436007D8422 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		DED24B0C18119436007D8422 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		DED24B0D18119436007D8422 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -219,6 +229,12 @@
 		DED24B0A1811923B007D8422 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DE1C108C1812CC4200BACC2C /* HomeViewController.h */,
+				DE1C108D1812CC4200BACC2C /* HomeViewController.m */,
+				DE1C108E1812CC4200BACC2C /* HomeViewController.xib */,
+				DE78C37B18158403001C868A /* SignInViewController.h */,
+				DE78C37C18158403001C868A /* SignInViewController.m */,
+				DE78C37D18158403001C868A /* SignInViewController.xib */,
 				DED24B0B18119436007D8422 /* SignUpViewController.h */,
 				DED24B0C18119436007D8422 /* SignUpViewController.m */,
 				DED24B0D18119436007D8422 /* SignUpViewController.xib */,
@@ -304,9 +320,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE78C37F18158403001C868A /* SignInViewController.xib in Resources */,
 				DE5927B018105C23000B8931 /* InfoPlist.strings in Resources */,
 				DED24B0F18119436007D8422 /* SignUpViewController.xib in Resources */,
 				DE5927BB18105C23000B8931 /* Images.xcassets in Resources */,
+				DE1C10901812CC4200BACC2C /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +380,7 @@
 				DE6952AC18108313007C5C76 /* User.m in Sources */,
 				DE6952AA18108313007C5C76 /* _User.m in Sources */,
 				DED24B561811C8B7007D8422 /* ApiClient.m in Sources */,
+				DE78C37E18158403001C868A /* SignInViewController.m in Sources */,
 				DE5927B918105C23000B8931 /* Budgee.xcdatamodeld in Sources */,
 				DE1C10891811E8D100BACC2C /* SignUp.m in Sources */,
 				DE6952B018109489007C5C76 /* CredentialManager.m in Sources */,
@@ -369,6 +388,7 @@
 				DE6952A918108313007C5C76 /* _Person.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
 				DED24B0E18119436007D8422 /* SignUpViewController.m in Sources */,
+				DE1C108F1812CC4200BACC2C /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

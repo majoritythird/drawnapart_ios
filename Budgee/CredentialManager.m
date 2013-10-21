@@ -50,6 +50,14 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
   return _currentPerson;
 }
 
++ (void)removeCurrentPerson
+{
+  NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+  [SSKeychain deletePasswordForService:bundleIdentifier account:kBudgeeKeychainAccount];
+  [ApiClient sharedApiClient].authenticationToken = nil;
+  _currentPerson = nil;
+}
+
 + (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken
 {
   NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];

@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "CredentialManager.h"
+#import "HomeViewController.h"
+#import "SignInViewController.h"
 #import "SignUpViewController.h"
 
 @implementation AppDelegate
@@ -16,36 +18,7 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-  self.window.backgroundColor = [UIColor whiteColor];
-
-  // Do we have a currentPerson? (keychain item with authtoken and person id)
-  if ([CredentialManager currentPersonUsingContext:self.managedObjectContext]) {
-    //   Show HomeViewController/BalanceViewController
-    //   Immediately fetch Person
-    //   Success?
-    //     Show the view with the balance, etc.
-    //   Failure?
-    //     Dump auth token.
-    //     Go to the sign in screen.
-  }
-  else {
-    //   Show the sign up view, with sign in option
-    SignUpViewController *signUpViewController = [[SignUpViewController alloc] initWithNibName:@"SignUpViewController" bundle:nil];
-    self.window.rootViewController = signUpViewController;
-  }
-
-  [self.window makeKeyAndVisible];
-  return YES;
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-  // Saves changes in the application's managed object context before the application terminates.
-  [self saveContext];
-}
+#pragma mark - Methods
 
 - (void)saveContext
 {
@@ -59,6 +32,52 @@
       abort();
     }
   }
+}
+
+- (void)signOut
+{
+  [CredentialManager removeCurrentPerson];
+  [self switchRootViewController:@"SignInViewController"];
+}
+
+- (void)switchRootViewController:(NSString *)viewControllerAsString
+{
+  Class klass = NSClassFromString(viewControllerAsString);
+  UIViewController *viewController = [[klass alloc] initWithNibName:viewControllerAsString bundle:nil];
+  self.window.rootViewController = viewController;
+}
+
+#pragma mark - UIApplicationDelegate
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  self.window.backgroundColor = [UIColor whiteColor];
+
+  // Do we have a currentPerson? (keychain item with authtoken and person id)
+  if ([CredentialManager currentPersonUsingContext:self.managedObjectContext]) {
+    //   Show HomeViewController/BalanceViewController
+    [self switchRootViewController:@"HomeViewController"];
+    //   Immediately fetch Person
+    //   Success?
+    //     Show the view with the balance, etc.
+    //   Failure?
+    //     Dump auth token.
+    //     Go to the sign in screen.
+  }
+  else {
+    //   Show the sign up view, with sign in option
+    [self switchRootViewController:@"SignUpViewController"];
+  }
+
+  [self.window makeKeyAndVisible];
+  return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+  // Saves changes in the application's managed object context before the application terminates.
+  [self saveContext];
 }
 
 #pragma mark - Core Data stack

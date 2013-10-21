@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "ApiClient.h"
+#import "AppDelegate.h"
 #import "SignUp.h"
 
 @interface SignUpViewController ()
@@ -32,6 +33,11 @@
 }
 
 #pragma mark - Methods
+
+- (IBAction)showSignIn:(id)sender {
+  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  [appDelegate switchRootViewController:@"SignInViewController"];
+}
 
 - (IBAction)signUp:(id)sender {
   NSString *email = self.emailTextField.text;

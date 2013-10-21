@@ -15,6 +15,7 @@ static ApiClient *_sharedApiClient = nil;
 
 @interface ApiClient()
 
+@property(nonatomic,strong) AppDelegate *appDelegate;
 @property(nonatomic,strong) NSManagedObjectContext *context;
 @property(nonatomic,strong) RKManagedObjectStore *managedObjectStore;
 
@@ -43,9 +44,9 @@ static ApiClient *_sharedApiClient = nil;
 
 
   if (self) {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    _context = [appDelegate managedObjectContext];
-    _managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[appDelegate managedObjectModel]];
+    _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    _context = [_appDelegate managedObjectContext];
+    _managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:[_appDelegate managedObjectModel]];
   }
 
   return self;
@@ -87,6 +88,8 @@ static ApiClient *_sharedApiClient = nil;
 
     NSLog(@"Mapped the user: %@", user);
     NSLog(@"Mapped the person: %@", person);
+
+    [self.appDelegate switchRootViewController:@"HomeViewController"];
   } failure:^(RKObjectRequestOperation *operation, NSError *error) {
     NSLog(@"Failed with error: %@", [error localizedDescription]);
   }];
