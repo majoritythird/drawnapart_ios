@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SignUp.h"
+#import "CredentialFormValueObject.h"
 
 @interface ApiClient : NSObject
 
@@ -16,6 +16,7 @@
 + (ApiClient *)sharedApiClient;
 
 - (id)init;
-- (void)signUp:(SignUp *)signUp;
+- (void)signIn:(CredentialFormValueObject *)signIn;
+- (void)signUp:(CredentialFormValueObject *)signUp;
 
 @end

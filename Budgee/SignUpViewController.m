@@ -9,7 +9,7 @@
 #import "SignUpViewController.h"
 #import "ApiClient.h"
 #import "SignInViewController.h"
-#import "SignUp.h"
+#import "CredentialFormValueObject.h"
 
 @interface SignUpViewController ()
 
@@ -47,9 +47,9 @@
   NSString *name = self.nameTextField.text;
   NSString *password = self.passwordTextField.text;
 
-  SignUp *signUp = [[SignUp alloc] initWithEmail:email name:name password:password];
+  CredentialFormValueObject *signUpValueObject = [[CredentialFormValueObject alloc] initWithEmail:email name:name password:password];
 
-  [[ApiClient sharedApiClient] signUp:signUp];
+  [[ApiClient sharedApiClient] signUp:signUpValueObject];
 }
 
 #pragma mark - UIViewController

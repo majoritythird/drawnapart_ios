@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D64BC8E1ADE54186A9D5EE8C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54684209C6D64E3A95C36F55 /* libPods.a */; };
-		DE1C10891811E8D100BACC2C /* SignUp.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C10881811E8D100BACC2C /* SignUp.m */; };
+		DE1C10891811E8D100BACC2C /* CredentialFormValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C10881811E8D100BACC2C /* CredentialFormValueObject.m */; };
 		DE1C108F1812CC4200BACC2C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C108D1812CC4200BACC2C /* HomeViewController.m */; };
 		DE1C10901812CC4200BACC2C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1C108E1812CC4200BACC2C /* HomeViewController.xib */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
@@ -51,8 +51,8 @@
 /* Begin PBXFileReference section */
 		54684209C6D64E3A95C36F55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D68F9B0AE6D4B25ABF42912 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		DE1C10871811E8D100BACC2C /* SignUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUp.h; sourceTree = "<group>"; };
-		DE1C10881811E8D100BACC2C /* SignUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUp.m; sourceTree = "<group>"; };
+		DE1C10871811E8D100BACC2C /* CredentialFormValueObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialFormValueObject.h; sourceTree = "<group>"; };
+		DE1C10881811E8D100BACC2C /* CredentialFormValueObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialFormValueObject.m; sourceTree = "<group>"; };
 		DE1C108C1812CC4200BACC2C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE1C108D1812CC4200BACC2C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DE1C108E1812CC4200BACC2C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 				DE6952A418108313007C5C76 /* _User.m */,
 				DE6952A518108313007C5C76 /* Person.h */,
 				DE6952A618108313007C5C76 /* Person.m */,
-				DE1C10871811E8D100BACC2C /* SignUp.h */,
-				DE1C10881811E8D100BACC2C /* SignUp.m */,
+				DE1C10871811E8D100BACC2C /* CredentialFormValueObject.h */,
+				DE1C10881811E8D100BACC2C /* CredentialFormValueObject.m */,
 				DE6952A718108313007C5C76 /* User.h */,
 				DE6952A818108313007C5C76 /* User.m */,
 			);
@@ -382,7 +382,7 @@
 				DED24B561811C8B7007D8422 /* ApiClient.m in Sources */,
 				DE78C37E18158403001C868A /* SignInViewController.m in Sources */,
 				DE5927B918105C23000B8931 /* Budgee.xcdatamodeld in Sources */,
-				DE1C10891811E8D100BACC2C /* SignUp.m in Sources */,
+				DE1C10891811E8D100BACC2C /* CredentialFormValueObject.m in Sources */,
 				DE6952B018109489007C5C76 /* CredentialManager.m in Sources */,
 				DE5927B218105C23000B8931 /* main.m in Sources */,
 				DE6952A918108313007C5C76 /* _Person.m in Sources */,

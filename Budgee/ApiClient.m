@@ -68,11 +68,11 @@ static ApiClient *_sharedApiClient = nil;
   [CredentialManager setCurrentPerson:person withAuthenticationToken:authToken];
 }
 
-- (void)signUp:(SignUp *)signUp
+- (void)signIn:(CredentialFormValueObject *)signInValueObject
 {
-  NSURLRequest *request = [self signUpRequest:signUp];
-  RKResponseDescriptor *personResponseDescriptor = [self signUpResponseDescriptorForPerson];
-  RKResponseDescriptor *userResponseDescriptor = [self signUpResponseDescriptorForUser];
+  NSURLRequest *request = [self signInUpRequestForURL:@"http://localhost:3000/api/sign_in" usingValues:signInValueObject];
+  RKResponseDescriptor *personResponseDescriptor = [self responseDescriptorForEntity:@"Person" forPath:@"/api/sign_in"];
+  RKResponseDescriptor *userResponseDescriptor = [self responseDescriptorForEntity:@"User" forPath:@"/api/sign_in"];
   RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[userResponseDescriptor, personResponseDescriptor]];
   operation.managedObjectContext = self.context;
   operation.managedObjectCache = self.managedObjectStore.managedObjectCache;
@@ -82,7 +82,6 @@ static ApiClient *_sharedApiClient = nil;
     User *user = resultDict[@"user"];
     Person *person = resultDict[@"person"];
     user.person = person;
-    [self.context save:nil];
 
     [self setCurrentPerson:person withAuthenticationTokenFromOperation:operation];
 
@@ -97,13 +96,13 @@ static ApiClient *_sharedApiClient = nil;
   [operationQueue addOperation:operation];
 }
 
-- (NSURLRequest *)signUpRequest:(SignUp *)signUp
+- (NSURLRequest *)signInUpRequestForURL:(NSString *)urlString usingValues:(CredentialFormValueObject *)valueObject
 {
-  NSURL *url = [NSURL URLWithString:@"http://localhost:3000/api/sign_up"];
+  NSURL *url = [NSURL URLWithString:urlString];
   NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
 
-  NSString *signUpJSON = [signUp toJSON];
-  NSData *requestData = [NSData dataWithBytes:[signUpJSON UTF8String] length:[signUpJSON length]];
+  NSString *json = [valueObject toJSON];
+  NSData *requestData = [NSData dataWithBytes:[json UTF8String] length:[json length]];
 
   [request setHTTPMethod:@"POST"];
   [request setValue:@"application/vnd.budgee.v1+json" forHTTPHeaderField:@"Accept"];
@@ -114,20 +113,42 @@ static ApiClient *_sharedApiClient = nil;
   return request;
 }
 
-- (RKResponseDescriptor *)signUpResponseDescriptorForPerson
+- (void)signUp:(CredentialFormValueObject *)signUpValueObject
 {
-  RKEntityMapping *responseMapping = [Person mappingInManagedObjectStore:self.managedObjectStore];
-  NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
+  NSURLRequest *request = [self signInUpRequestForURL:@"http://localhost:3000/api/sign_up" usingValues:signUpValueObject];
+  RKResponseDescriptor *personResponseDescriptor = [self responseDescriptorForEntity:@"Person" forPath:@"/api/sign_up"];
+  RKResponseDescriptor *userResponseDescriptor = [self responseDescriptorForEntity:@"User" forPath:@"/api/sign_up"];
+  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[userResponseDescriptor, personResponseDescriptor]];
+  operation.managedObjectContext = self.context;
+  operation.managedObjectCache = self.managedObjectStore.managedObjectCache;
+  operation.savesToPersistentStore = NO;
+  [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+    NSDictionary *resultDict = [result dictionary];
+    User *user = resultDict[@"user"];
+    Person *person = resultDict[@"person"];
+    user.person = person;
+    [self.context save:nil];
 
-  return [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:@"/api/sign_up" keyPath:@"person" statusCodes:statusCodes];
+    [self setCurrentPerson:person withAuthenticationTokenFromOperation:operation];
+
+    NSLog(@"Mapped the person: %@", person);
+
+    [self.appDelegate switchRootViewController:@"HomeViewController"];
+  } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+    NSLog(@"Failed with error: %@", [error localizedDescription]);
+  }];
+  NSOperationQueue *operationQueue = [NSOperationQueue new];
+  [operationQueue addOperation:operation];
 }
 
-- (RKResponseDescriptor *)signUpResponseDescriptorForUser
+- (RKResponseDescriptor *)responseDescriptorForEntity:(NSString *)entityName forPath:(NSString *)pathPattern
 {
-  RKEntityMapping *responseMapping = [User mappingInManagedObjectStore:self.managedObjectStore];
+  Class entityClass = NSClassFromString(entityName);
+  NSAssert(entityClass, @"entityName \"%@\" must resolve to a class.", entityName);
+  RKEntityMapping *responseMapping = [entityClass mappingInManagedObjectStore:self.managedObjectStore];
   NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
 
-  return [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:@"/api/sign_up" keyPath:@"user" statusCodes:statusCodes];
+  return [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:pathPattern keyPath:[entityName lowercaseString] statusCodes:statusCodes];
 }
 
 @end

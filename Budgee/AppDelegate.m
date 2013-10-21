@@ -37,7 +37,7 @@
 - (void)signOut
 {
   [CredentialManager removeCurrentPerson];
-  [self switchRootViewController:@"SignInViewController"];
+  [self switchRootViewController:@"SignUpViewController"];
 }
 
 - (void)switchRootViewController:(NSString *)viewControllerAsString

@@ -1,5 +1,5 @@
 //
-//  SignUp.h
+//  CredentialFormValueObject.h
 //  Budgee
 //
 //  Created by Wes Gibbs on 10/18/13.
@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SignUp : NSObject
+@interface CredentialFormValueObject : NSObject
 
 @property(nonatomic,strong) NSString *email;
 @property(nonatomic,strong) NSString *name;
 @property(nonatomic,strong) NSString *password;
 
+- (id)initWithEmail:(NSString *)email password:(NSString *)password;
 - (id)initWithEmail:(NSString *)email name:(NSString *)name password:(NSString *)password;
+
 - (NSString *)toJSON;
 
 @end
