@@ -8,7 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "ApiClient.h"
-#import "AppDelegate.h"
+#import "SignInViewController.h"
 #import "SignUp.h"
 
 @interface SignUpViewController ()
@@ -34,9 +34,12 @@
 
 #pragma mark - Methods
 
-- (IBAction)showSignIn:(id)sender {
-  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  [appDelegate switchRootViewController:@"SignInViewController"];
+- (IBAction)presentSignIn:(id)sender {
+  SignInViewController *presentedViewController = [[SignInViewController alloc] initWithNibName:@"SignInViewController" bundle:nil];
+  presentedViewController.switchToSignUp = ^{
+    [self dismissViewControllerAnimated:YES completion:nil];
+  };
+  [self presentViewController:presentedViewController animated:YES completion:nil];
 }
 
 - (IBAction)signUp:(id)sender {

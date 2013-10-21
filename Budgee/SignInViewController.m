@@ -7,7 +7,6 @@
 //
 
 #import "SignInViewController.h"
-#import "AppDelegate.h"
 
 @interface SignInViewController ()
 
@@ -29,8 +28,7 @@
 #pragma mark - Methods
 
 - (IBAction)showSignUp:(id)sender {
-  AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-  [appDelegate switchRootViewController:@"SignUpViewController"];
+  self.switchToSignUp();
 }
 
 #pragma mark - UIViewController

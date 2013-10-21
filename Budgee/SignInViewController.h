@@ -10,4 +10,6 @@
 
 @interface SignInViewController : UIViewController
 
+@property(nonatomic,copy) dispatch_block_t switchToSignUp;
+
 @end
