@@ -105,7 +105,7 @@ static ApiClient *_sharedApiClient = nil;
   [request setHTTPMethod:@"POST"];
   [request setValue:@"application/vnd.budgee.v1+json" forHTTPHeaderField:@"Accept"];
   [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-  [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+  [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[requestData length]] forHTTPHeaderField:@"Content-Length"];
   [request setHTTPBody: requestData];
 
   return request;
