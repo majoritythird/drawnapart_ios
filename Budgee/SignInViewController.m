@@ -31,7 +31,7 @@
 
   CredentialFormValueObject *signInValueObject = [[CredentialFormValueObject alloc] initWithEmail:email password:password];
 
-  [[ApiClient sharedApiClient] signIn:signInValueObject];
+  [[ApiClient sharedApiClient] signInOrUp:@"sign_in" credentialValueObject:signInValueObject];
 }
 
 #pragma mark - UIViewController
