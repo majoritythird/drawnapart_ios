@@ -25,8 +25,9 @@
 
 - (IBAction)presentSignIn:(id)sender {
   SignInViewController *presentedViewController = [[SignInViewController alloc] initWithNibName:@"SignInViewController" bundle:nil];
+  __weak typeof(self) weakSelf = self;
   presentedViewController.switchToSignUp = ^{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [weakSelf dismissViewControllerAnimated:YES completion:nil];
   };
   [self presentViewController:presentedViewController animated:YES completion:nil];
 }
