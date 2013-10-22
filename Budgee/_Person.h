@@ -5,6 +5,7 @@
 
 
 extern const struct PersonAttributes {
+	__unsafe_unretained NSString *balance;
 	__unsafe_unretained NSString *id;
 	__unsafe_unretained NSString *name;
 } PersonAttributes;
@@ -21,6 +22,7 @@ extern const struct PersonFetchedProperties {
 
 
 
+
 @interface PersonID : NSManagedObjectID {}
 @end
 
@@ -29,6 +31,20 @@ extern const struct PersonFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PersonID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* balance;
+
+
+
+@property int32_t balanceValue;
+- (int32_t)balanceValue;
+- (void)setBalanceValue:(int32_t)value_;
+
+//- (BOOL)validateBalance:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -69,6 +85,15 @@ extern const struct PersonFetchedProperties {
 @end
 
 @interface _Person (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveBalance;
+- (void)setPrimitiveBalance:(NSNumber*)value;
+
+- (int32_t)primitiveBalanceValue;
+- (void)setPrimitiveBalanceValue:(int32_t)value_;
+
+
 
 
 - (NSString*)primitiveId;

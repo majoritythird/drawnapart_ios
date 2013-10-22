@@ -4,6 +4,7 @@
 #import "_Person.h"
 
 const struct PersonAttributes PersonAttributes = {
+	.balance = @"balance",
 	.id = @"id",
 	.name = @"name",
 };
@@ -41,9 +42,40 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"balanceValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"balance"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic balance;
+
+
+
+- (int32_t)balanceValue {
+	NSNumber *result = [self balance];
+	return [result intValue];
+}
+
+- (void)setBalanceValue:(int32_t)value_ {
+	[self setBalance:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveBalanceValue {
+	NSNumber *result = [self primitiveBalance];
+	return [result intValue];
+}
+
+- (void)setPrimitiveBalanceValue:(int32_t)value_ {
+	[self setPrimitiveBalance:[NSNumber numberWithInt:value_]];
+}
+
 
 
 
