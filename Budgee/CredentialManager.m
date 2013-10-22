@@ -32,38 +32,6 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
 
 #pragma mark - Methods
 
-- (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context
-{
-  if (_currentPerson == nil) {
-    @synchronized(self)
-    {
-      if (_currentPerson == nil) {
-        NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
-        NSString *personIdInfo = [SSKeychain passwordForService:bundleIdentifier account:kBudgeeKeychainAccount];
-
-        if (personIdInfo) {
-          NSArray *components = [personIdInfo componentsSeparatedByString:kKeychainPasswordSeparator];
-          NSString *personId = components[0];
-          NSString *authToken = components[1];
-
-          _currentPerson = [Person findFirstWhereProperty:@"id" equals:personId inContext:context error:nil];
-
-          if (_currentPerson == nil) {
-            return nil;
-          }
-          // set the authToken on the singleton instance of ApiClient
-          [ApiClient sharedApiClient].authenticationToken = authToken;
-        }
-        else {
-          return nil;
-        }
-      }
-    }
-  }
-
-  return _currentPerson;
-}
-
 - (void)removeCurrentPerson
 {
   NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
@@ -85,7 +53,35 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
   }
   else {
     _currentPerson = person;
+    [ApiClient sharedApiClient].authenticationToken = authenticationToken;
+
     return YES;
+  }
+}
+
+- (void)setCurrentPersonFromKeychainUsingContext:(NSManagedObjectContext *)context
+{
+  if (_currentPerson == nil) {
+    @synchronized(self)
+    {
+      if (_currentPerson == nil) {
+        NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+        NSString *personIdInfo = [SSKeychain passwordForService:bundleIdentifier account:kBudgeeKeychainAccount];
+
+        if (personIdInfo) {
+          NSArray *components = [personIdInfo componentsSeparatedByString:kKeychainPasswordSeparator];
+          NSString *personId = components[0];
+          NSString *authToken = components[1];
+
+          _currentPerson = [Person findFirstWhereProperty:@"id" equals:personId inContext:context error:nil];
+
+          if (_currentPerson != nil) {
+            // set the authToken on the singleton instance of ApiClient
+            [ApiClient sharedApiClient].authenticationToken = authToken;
+          }
+        }
+      }
+    }
   }
 }
 

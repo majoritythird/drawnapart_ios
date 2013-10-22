@@ -19,8 +19,8 @@
 
 + (CredentialManager *)sharedInstance;
 
-- (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context;
 - (void)removeCurrentPerson;
 - (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken;
+- (void)setCurrentPersonFromKeychainUsingContext:(NSManagedObjectContext *)context;
 
 @end

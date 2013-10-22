@@ -55,7 +55,8 @@
   self.window.backgroundColor = [UIColor whiteColor];
 
   // Do we have a currentPerson? (keychain item with authtoken and person id)
-  if ([[CredentialManager sharedInstance] currentPersonUsingContext:self.managedObjectContext]) {
+  [[CredentialManager sharedInstance] setCurrentPersonFromKeychainUsingContext:self.managedObjectContext];
+  if ([[CredentialManager sharedInstance] currentPerson]) {
     //   Show HomeViewController/BalanceViewController
     [self switchRootViewController:@"HomeViewController"];
     //   Immediately fetch Person
