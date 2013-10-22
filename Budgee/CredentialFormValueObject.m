@@ -51,17 +51,3 @@
 }
 
 @end
-
-//#pragma mark - Methods
-//
-//+ (RKObjectMapping *)mapping
-//{
-//  RKObjectMapping *signUpMapping = [RKObjectMapping requestMapping];
-//  [signUpMapping addAttributeMappingsFromArray:@[@"email", @"password"]];
-//  [signUpMapping addAttributeMappingsFromDictionary:@{
-//    @"name":   @"person_attributes.name"
-//  }];
-//
-//  return signUpMapping;
-//}
-//

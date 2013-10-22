@@ -196,24 +196,3 @@ static ApiClient *_sharedApiClient = nil;
 }
 
 @end
-
-//TODO get base url dynamically based on dev or appstore or whatever
-//TODO think about what context should be used for updating inserting objects as a result of processing api response
-
-//  RKObjectMapping *requestMapping = [SignUp mapping];
-//  RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping objectClass:[SignUp class] rootKeyPath:@"user" method:RKRequestMethodAny];
-
-
-
-//  RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://localhost:3000"]];
-//  manager.managedObjectStore = self.managedObjectStore;
-//  manager.requestSerializationMIMEType = RKMIMETypeJSON;
-//  [manager setAcceptHeaderWithMIMEType:@"application/vnd.budgee.v1+json"];
-//  [manager addRequestDescriptor:requestDescriptor];
-//  [manager addResponseDescriptor:responseDescriptor];
-//
-//  [manager postObject:signUp path:@"/api/sign_up" parameters:nil success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-//    NSLog(@"Success:");
-//  } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-//    NSLog(@"Failure:");
-//  }];
