@@ -83,6 +83,8 @@ static ApiClient *_sharedApiClient = nil;
     Person *person = resultDict[@"person"];
     user.person = person;
 
+    [self.context save:nil];
+
     [self setCurrentPerson:person withAuthenticationTokenFromOperation:operation];
 
     NSLog(@"Mapped the user: %@", user);
