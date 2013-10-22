@@ -12,6 +12,7 @@
 #import "CredentialFormValueObject.h"
 
 @interface SignUpViewController ()
+<UITextFieldDelegate>
 
 @property(nonatomic,weak) IBOutlet UITextField *emailTextField;
 @property(nonatomic,weak) IBOutlet UITextField *nameTextField;
@@ -40,6 +41,24 @@
   CredentialFormValueObject *signUpValueObject = [[CredentialFormValueObject alloc] initWithEmail:email name:name password:password];
 
   [[ApiClient sharedApiClient] signInOrUp:@"sign_up" credentialValueObject:signUpValueObject];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  if (textField == self.nameTextField) {
+    [self.emailTextField becomeFirstResponder];
+  }
+  else if (textField == self.emailTextField) {
+    [self.passwordTextField becomeFirstResponder];
+  }
+  else {
+    [self.passwordTextField resignFirstResponder];
+    [self signUp:nil];
+  }
+
+  return YES;
 }
 
 #pragma mark - UIViewController
