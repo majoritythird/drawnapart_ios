@@ -8,8 +8,11 @@
 
 #import "HomeViewController.h"
 #import "AppDelegate.h"
+#import "CredentialManager.h"
 
 @interface HomeViewController ()
+
+@property(nonatomic,strong) IBOutlet UILabel *balanceLabel;
 
 @end
 
@@ -19,14 +22,18 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 #pragma mark - Methods
+
+- (IBAction)refreshBalance:(id)sender {
+  
+}
 
 - (IBAction)signOut:(id)sender {
   AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -37,8 +44,9 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  NSNumber *balance = [[CredentialManager sharedInstance] currentPerson].balance;
+  self.balanceLabel.text = [balance stringValue];
 }
 
 @end

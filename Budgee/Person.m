@@ -19,7 +19,7 @@
 + (RKEntityMapping *)mappingInManagedObjectStore:(RKManagedObjectStore *)managedObjectStore
 {
   RKEntityMapping *personMapping = [RKEntityMapping mappingForEntityForName:@"Person" inManagedObjectStore:managedObjectStore];
-  [personMapping addAttributeMappingsFromArray:@[@"id", @"name"]];
+  [personMapping addAttributeMappingsFromArray:@[@"balance", @"id", @"name"]];
   personMapping.identificationAttributes = @[@"id"];
 
   return personMapping;
