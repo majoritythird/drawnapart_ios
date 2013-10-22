@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "ApiClient.h"
 #import "AppDelegate.h"
 #import "CredentialManager.h"
 
@@ -32,7 +33,10 @@
 #pragma mark - Methods
 
 - (IBAction)refreshBalance:(id)sender {
-  
+  NSString *personId = [[CredentialManager sharedInstance] currentPerson].id;
+  [[ApiClient sharedApiClient] fetchPerson:personId success:^{
+    [self updateBalanceLabel];
+  }];
 }
 
 - (IBAction)signOut:(id)sender {
@@ -40,13 +44,19 @@
   [appDelegate signOut];
 }
 
+- (void)updateBalanceLabel
+{
+  NSNumber *balance = [[CredentialManager sharedInstance] currentPerson].balance;
+  self.balanceLabel.text = [balance stringValue];
+}
+
 #pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  NSNumber *balance = [[CredentialManager sharedInstance] currentPerson].balance;
-  self.balanceLabel.text = [balance stringValue];
+
+  [self updateBalanceLabel];
 }
 
 @end

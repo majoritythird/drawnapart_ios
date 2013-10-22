@@ -16,6 +16,8 @@
 + (ApiClient *)sharedApiClient;
 
 - (id)init;
+
+- (void)fetchPerson:(NSString *)personId success:(void(^)())successBlock;
 - (void)signIn:(CredentialFormValueObject *)signIn;
 - (void)signUp:(CredentialFormValueObject *)signUp;
 

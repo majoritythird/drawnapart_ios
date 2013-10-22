@@ -62,6 +62,48 @@ static ApiClient *_sharedApiClient = nil;
   return jsonDict[@"user"][@"authentication_token"];
 }
 
+- (NSURLRequest *)personRequestForId:(NSString *)personId
+{
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:3000/api/people/%@", personId]];
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+
+  [request setHTTPMethod:@"GET"];
+  [request setValue:@"application/vnd.budgee.v1+json" forHTTPHeaderField:@"Accept"];
+  [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+  [request setValue:[NSString stringWithFormat:@"Token token=\"%@\"", self.authenticationToken] forHTTPHeaderField:@"Authorization"];
+
+  return request;
+}
+
+- (void)fetchPerson:(NSString *)personId success:(void(^)())successBlock
+{
+  NSURLRequest *request = [self personRequestForId:personId];
+  RKResponseDescriptor *personResponseDescriptor = [self responseDescriptorForEntity:@"Person" forPath:@"/api/people/:personId"];
+  RKResponseDescriptor *userResponseDescriptor = [self responseDescriptorForEntity:@"User" forPath:@"/api/people/:personId"];
+  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[userResponseDescriptor, personResponseDescriptor]];
+  operation.managedObjectContext = self.context;
+  operation.managedObjectCache = self.managedObjectStore.managedObjectCache;
+  operation.savesToPersistentStore = NO;
+  [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+    NSDictionary *resultDict = [result dictionary];
+    User *user = resultDict[@"user"];
+    Person *person = resultDict[@"person"];
+    user.person = person;
+
+    [self.context save:nil];
+
+    NSLog(@"Mapped the user: %@", user);
+    NSLog(@"Mapped the person: %@", person);
+
+    successBlock();
+
+  } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+    NSLog(@"Failed with error: %@", [error localizedDescription]);
+  }];
+  NSOperationQueue *operationQueue = [NSOperationQueue new];
+  [operationQueue addOperation:operation];
+}
+
 - (void)setCurrentPerson:(Person *)person withAuthenticationTokenFromOperation:(RKObjectRequestOperation *)operation
 {
   NSString *authToken = [self authenticationTokenFromOperation:operation];
