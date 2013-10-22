@@ -65,7 +65,7 @@ static ApiClient *_sharedApiClient = nil;
 - (void)setCurrentPerson:(Person *)person withAuthenticationTokenFromOperation:(RKObjectRequestOperation *)operation
 {
   NSString *authToken = [self authenticationTokenFromOperation:operation];
-  [CredentialManager setCurrentPerson:person withAuthenticationToken:authToken];
+  [[CredentialManager sharedInstance] setCurrentPerson:person withAuthenticationToken:authToken];
 }
 
 - (void)signIn:(CredentialFormValueObject *)signInValueObject

@@ -10,7 +10,8 @@
 #import "ApiClient.h"
 #import "SSKeychain.h"
 
-static Person *_currentPerson = nil;
+static CredentialManager *_sharedCredentialManager = nil;
+
 static NSString *const kBudgeeKeychainAccount = @"CurrentPerson";
 static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
 
@@ -18,7 +19,20 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
 
 #pragma mark - Class methods
 
-+ (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context
++ (CredentialManager *)sharedInstance
+{
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    _sharedCredentialManager = [[CredentialManager alloc] init];
+  });
+
+  return _sharedCredentialManager;
+}
+
+#pragma mark - Methods
+
+- (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context
 {
   if (_currentPerson == nil) {
     @synchronized(self)
@@ -50,7 +64,7 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
   return _currentPerson;
 }
 
-+ (void)removeCurrentPerson
+- (void)removeCurrentPerson
 {
   NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
   [SSKeychain deletePasswordForService:bundleIdentifier account:kBudgeeKeychainAccount];
@@ -58,7 +72,7 @@ static NSString *const kKeychainPasswordSeparator = @"__:BUG:__";
   _currentPerson = nil;
 }
 
-+ (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken
+- (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken
 {
   NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
   NSString *personIdInfo = [@[person.id, authenticationToken] componentsJoinedByString:kKeychainPasswordSeparator];

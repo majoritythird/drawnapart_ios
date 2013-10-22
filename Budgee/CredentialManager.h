@@ -11,13 +11,16 @@
 
 @interface CredentialManager : NSObject
 
-+ (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context;
-+ (void)removeCurrentPerson;
-+ (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken;
-
 @property(nonatomic,readonly) NSString *authToken;
+@property(nonatomic,strong) Person *currentPerson;
 @property(nonatomic,readonly) NSString *email;
 @property(nonatomic,readonly) BOOL isValid;
 @property(nonatomic,readonly) NSString *personId;
+
++ (CredentialManager *)sharedInstance;
+
+- (Person *)currentPersonUsingContext:(NSManagedObjectContext *)context;
+- (void)removeCurrentPerson;
+- (BOOL)setCurrentPerson:(Person *)person withAuthenticationToken:(NSString *)authenticationToken;
 
 @end

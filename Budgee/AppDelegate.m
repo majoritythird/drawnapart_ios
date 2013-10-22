@@ -36,7 +36,7 @@
 
 - (void)signOut
 {
-  [CredentialManager removeCurrentPerson];
+  [[CredentialManager sharedInstance] removeCurrentPerson];
   [self switchRootViewController:@"SignUpViewController"];
 }
 
@@ -55,7 +55,7 @@
   self.window.backgroundColor = [UIColor whiteColor];
 
   // Do we have a currentPerson? (keychain item with authtoken and person id)
-  if ([CredentialManager currentPersonUsingContext:self.managedObjectContext]) {
+  if ([[CredentialManager sharedInstance] currentPersonUsingContext:self.managedObjectContext]) {
     //   Show HomeViewController/BalanceViewController
     [self switchRootViewController:@"HomeViewController"];
     //   Immediately fetch Person
