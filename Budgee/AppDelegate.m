@@ -54,10 +54,9 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
   self.window.backgroundColor = [UIColor whiteColor];
 
-  // Do we have a currentPerson? (keychain item with authtoken and person id)
   [[CredentialManager sharedInstance] setCurrentPersonFromKeychainUsingContext:self.managedObjectContext];
+
   if ([[CredentialManager sharedInstance] currentPerson]) {
-    //   Show HomeViewController/BalanceViewController
     [self switchRootViewController:@"HomeViewController"];
     //   Immediately fetch Person
     //   Success?
@@ -67,11 +66,11 @@
     //     Go to the sign in screen.
   }
   else {
-    //   Show the sign up view, with sign in option
     [self switchRootViewController:@"SignUpViewController"];
   }
 
   [self.window makeKeyAndVisible];
+
   return YES;
 }
 
