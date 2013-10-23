@@ -65,9 +65,8 @@ static ApiClient *_sharedApiClient = nil;
 - (void)fetchPerson:(NSString *)personId success:(void(^)())successBlock
 {
   NSURLRequest *request = [self personRequestForId:personId];
-  RKResponseDescriptor *personResponseDescriptor = [self responseDescriptorForEntity:@"Person" forPath:@"/api/people/:personId"];
-  RKResponseDescriptor *userResponseDescriptor = [self responseDescriptorForEntity:@"User" forPath:@"/api/people/:personId"];
-  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[userResponseDescriptor, personResponseDescriptor]];
+  NSArray *responseDescriptors = [self responseDescriptorsForPersonForPath:@"/api/people/:personId"];
+  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:responseDescriptors];
   operation.managedObjectContext = self.context;
   operation.managedObjectCache = self.managedObjectStore.managedObjectCache;
   operation.savesToPersistentStore = NO;
@@ -106,12 +105,33 @@ static ApiClient *_sharedApiClient = nil;
 
 - (RKResponseDescriptor *)responseDescriptorForEntity:(NSString *)entityName forPath:(NSString *)pathPattern
 {
+  return [self responseDescriptorForEntity:entityName forPath:pathPattern forKey:[entityName lowercaseString]];
+}
+
+- (RKResponseDescriptor *)responseDescriptorForEntity:(NSString *)entityName forPath:(NSString *)pathPattern forKey:(NSString *)keyPath
+{
   Class entityClass = NSClassFromString(entityName);
   NSAssert(entityClass, @"entityName \"%@\" must resolve to a class.", entityName);
   RKEntityMapping *responseMapping = [entityClass mappingInManagedObjectStore:self.managedObjectStore];
   NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
 
-  return [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:pathPattern keyPath:[entityName lowercaseString] statusCodes:statusCodes];
+  return [RKResponseDescriptor responseDescriptorWithMapping:responseMapping method:RKRequestMethodAny pathPattern:pathPattern keyPath:keyPath statusCodes:statusCodes];
+}
+
+- (NSArray *)responseDescriptorsForPersonForPath:(NSString *)pathPattern
+{
+  RKResponseDescriptor *personDescriptor = [self responseDescriptorForEntity:@"Person" forPath:pathPattern];
+  RKResponseDescriptor *usersDescriptor = [self responseDescriptorForEntity:@"User" forPath:pathPattern forKey:@"users"];
+
+  return @[personDescriptor, usersDescriptor];
+}
+
+- (NSArray *)responseDescriptorsForUserForPath:(NSString *)pathPattern
+{
+  RKResponseDescriptor *peopleDescriptor = [self responseDescriptorForEntity:@"Person" forPath:pathPattern forKey:@"people"];
+  RKResponseDescriptor *userDescriptor = [self responseDescriptorForEntity:@"User" forPath:pathPattern];
+
+  return @[userDescriptor, peopleDescriptor];
 }
 
 - (void)setCurrentPerson:(Person *)person withAuthenticationTokenFromOperation:(RKObjectRequestOperation *)operation
@@ -123,16 +143,15 @@ static ApiClient *_sharedApiClient = nil;
 - (void)signInOrUp:(NSString *)action credentialValueObject:(CredentialFormValueObject *)credentialValueObject
 {
   NSURLRequest *request = [self signInOrUpRequestForURL:[NSString stringWithFormat:@"http://localhost:3000/api/%@", action] usingValues:credentialValueObject];
-  RKResponseDescriptor *personResponseDescriptor = [self responseDescriptorForEntity:@"Person" forPath:[NSString stringWithFormat:@"/api/%@", action]];
-  RKResponseDescriptor *userResponseDescriptor = [self responseDescriptorForEntity:@"User" forPath:[NSString stringWithFormat:@"/api/%@", action]];
-  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[userResponseDescriptor, personResponseDescriptor]];
+  NSArray *responseDescriptors = [self responseDescriptorsForUserForPath:[NSString stringWithFormat:@"/api/%@", action]];
+  RKManagedObjectRequestOperation *operation = [[RKManagedObjectRequestOperation alloc] initWithRequest:request responseDescriptors:responseDescriptors];
   operation.managedObjectContext = self.context;
   operation.managedObjectCache = self.managedObjectStore.managedObjectCache;
   operation.savesToPersistentStore = NO;
   [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
     NSDictionary *resultDict = [result dictionary];
     User *user = resultDict[@"user"];
-    Person *person = resultDict[@"person"];
+    Person *person = resultDict[@"people"][0];
     user.person = person;
 
     NSLog(@"Mapped the user: %@", user);
