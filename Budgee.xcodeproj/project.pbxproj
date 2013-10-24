@@ -11,6 +11,7 @@
 		DE1C10891811E8D100BACC2C /* CredentialFormValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C10881811E8D100BACC2C /* CredentialFormValueObject.m */; };
 		DE1C108F1812CC4200BACC2C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1C108D1812CC4200BACC2C /* HomeViewController.m */; };
 		DE1C10901812CC4200BACC2C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1C108E1812CC4200BACC2C /* HomeViewController.xib */; };
+		DE29B12C1819732B00E5C975 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = DE29B12B1819732B00E5C975 /* user.json */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
 		DE5927A618105C23000B8931 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A518105C23000B8931 /* CoreGraphics.framework */; };
 		DE5927A818105C23000B8931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A718105C23000B8931 /* UIKit.framework */; };
@@ -56,6 +57,7 @@
 		DE1C108C1812CC4200BACC2C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DE1C108D1812CC4200BACC2C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DE1C108E1812CC4200BACC2C /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		DE29B12B1819732B00E5C975 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user.json; sourceTree = "<group>"; };
 		DE5927A018105C23000B8931 /* Budgee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927A318105C23000B8931 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE5927A518105C23000B8931 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE29B12A1819730A00E5C975 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				DE29B12B1819732B00E5C975 /* user.json */,
+			);
+			name = Fixtures;
+			sourceTree = "<group>";
+		};
 		DE59279718105C23000B8931 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				DE5927CE18105C24000B8931 /* BudgeeTests.m */,
+				DE29B12A1819730A00E5C975 /* Fixtures */,
 				DE5927C918105C24000B8931 /* Supporting Files */,
 			);
 			path = BudgeeTests;
@@ -332,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE29B12C1819732B00E5C975 /* user.json in Resources */,
 				DE5927CD18105C24000B8931 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,35 @@
+{
+	"people": [{
+		"balance": 90,
+		"created_at": "2013-10-21T21:22:30.920Z",
+		"id": 30,
+		"links": {
+			"user": 40
+		},
+		"name": "pas",
+		"updated_at": "2013-10-22T16:23:07.865Z",
+		"user_id": 40
+	}],
+	"users": [{
+		"authentication_token": "JyN1_YkSRssAg6kWeKnf",
+		"created_at": "2013-10-21T21:22:30.933Z",
+		"email": "a@a.b",
+		"id": 40,
+		"links": {
+			"person": 30
+		},
+		"updated_at": "2013-10-24T15:25:04.084Z",
+		"person_id": 30
+	}],
+	"user": {
+		"authentication_token": "JyN1_YkSRssAg6kWeKnf",
+		"created_at": "2013-10-21T21:22:30.933Z",
+		"email": "a@a.b",
+		"id": 40,
+		"links": {
+			"person": 30
+		},
+		"updated_at": "2013-10-24T15:25:04.084Z",
+		"person_id": 30
+	}
+}
