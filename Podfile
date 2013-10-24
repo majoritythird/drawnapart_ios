@@ -6,4 +6,6 @@ inhibit_all_warnings!
 
 pod 'DVCoreDataFinders'
 pod 'RestKit'
+pod 'RestKit/Search'
+pod 'RestKit/Testing'
 pod 'SSKeychain'

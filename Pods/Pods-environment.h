@@ -60,11 +60,23 @@
 #define COCOAPODS_VERSION_MINOR_RestKit_ObjectMapping 21
 #define COCOAPODS_VERSION_PATCH_RestKit_ObjectMapping 0
 
+// RestKit/Search
+#define COCOAPODS_POD_AVAILABLE_RestKit_Search
+#define COCOAPODS_VERSION_MAJOR_RestKit_Search 0
+#define COCOAPODS_VERSION_MINOR_RestKit_Search 21
+#define COCOAPODS_VERSION_PATCH_RestKit_Search 0
+
 // RestKit/Support
 #define COCOAPODS_POD_AVAILABLE_RestKit_Support
 #define COCOAPODS_VERSION_MAJOR_RestKit_Support 0
 #define COCOAPODS_VERSION_MINOR_RestKit_Support 21
 #define COCOAPODS_VERSION_PATCH_RestKit_Support 0
+
+// RestKit/Testing
+#define COCOAPODS_POD_AVAILABLE_RestKit_Testing
+#define COCOAPODS_VERSION_MAJOR_RestKit_Testing 0
+#define COCOAPODS_VERSION_MINOR_RestKit_Testing 21
+#define COCOAPODS_VERSION_PATCH_RestKit_Testing 0
 
 // SOCKit
 #define COCOAPODS_POD_AVAILABLE_SOCKit

@@ -19,8 +19,11 @@ PODS:
     - ISO8601DateFormatterValueTransformer (~> 0.5.0)
     - RestKit/Support
     - RKValueTransformers (~> 1.0.0)
+  - RestKit/Search (0.21.0):
+    - RestKit/CoreData
   - RestKit/Support (0.21.0):
     - TransitionKit (= 1.1.1)
+  - RestKit/Testing (0.21.0)
   - RKValueTransformers (1.0.0)
   - SOCKit (1.1)
   - SSKeychain (1.2.1)
@@ -29,6 +32,8 @@ PODS:
 DEPENDENCIES:
   - DVCoreDataFinders
   - RestKit
+  - RestKit/Search
+  - RestKit/Testing
   - SSKeychain
 
 SPEC CHECKSUMS:
