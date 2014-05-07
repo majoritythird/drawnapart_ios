@@ -12,9 +12,6 @@ const struct UserRelationships UserRelationships = {
 	.person = @"person",
 };
 
-const struct UserFetchedProperties UserFetchedProperties = {
-};
-
 @implementation UserID
 @end
 
@@ -40,35 +37,15 @@ const struct UserFetchedProperties UserFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
 
 	return keyPaths;
 }
 
-
-
-
 @dynamic email;
-
-
-
-
-
 
 @dynamic id;
 
-
-
-
-
-
 @dynamic person;
 
-	
-
-
-
-
-
-
 @end
+

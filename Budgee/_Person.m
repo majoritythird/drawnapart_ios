@@ -13,9 +13,6 @@ const struct PersonRelationships PersonRelationships = {
 	.user = @"user",
 };
 
-const struct PersonFetchedProperties PersonFetchedProperties = {
-};
-
 @implementation PersonID
 @end
 
@@ -41,7 +38,7 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
-	
+
 	if ([key isEqualToString:@"balanceValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"balance"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -51,12 +48,7 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 	return keyPaths;
 }
 
-
-
-
 @dynamic balance;
-
-
 
 - (int32_t)balanceValue {
 	NSNumber *result = [self balance];
@@ -64,7 +56,7 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 }
 
 - (void)setBalanceValue:(int32_t)value_ {
-	[self setBalance:[NSNumber numberWithInt:value_]];
+	[self setBalance:@(value_)];
 }
 
 - (int32_t)primitiveBalanceValue {
@@ -73,34 +65,14 @@ const struct PersonFetchedProperties PersonFetchedProperties = {
 }
 
 - (void)setPrimitiveBalanceValue:(int32_t)value_ {
-	[self setPrimitiveBalance:[NSNumber numberWithInt:value_]];
+	[self setPrimitiveBalance:@(value_)];
 }
-
-
-
-
 
 @dynamic id;
 
-
-
-
-
-
 @dynamic name;
-
-
-
-
-
 
 @dynamic user;
 
-	
-
-
-
-
-
-
 @end
+
