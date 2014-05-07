@@ -7,7 +7,9 @@ RKValueTransformers
 
 **A simple, powerful Objective-C value transformation API extracted from RestKit**
 
-RKValueTransformers is a standalone library that provides a simple value transformation API in Objective-C. Value transformation is the process of converting a value between representations and is a core part of any system that requires that data be transmitted and received in a serialization format distinct from the local data model. In the general context of a RESTful API this means the transformation between values encoded in an XML or JSON document and locally modeled attributes of your data model. The most familiar and obvious example is the transformation of date and time data encoded as a string in a JSON documented and represented locally as an `NSDate` attribute of an `NSObject` or `NSManagedObject` derived class. RKValueTransformers provides a simple, well-designed API for generalizing and simplifying the task of handling an arbitrarily complex set of value transformation requirements for your iOS or Mac OS X application.
+RKValueTransformers is a standalone library that provides a simple value transformation API in Objective-C. Value transformation is the process of converting a value between representations and is a core part of any system that requires that data be transmitted and received in a serialization format distinct from the local data model. 
+
+In the general context of a RESTful API this means the transformation between values encoded in an XML or JSON document and local attributes of your data model. The most familiar and obvious example is the transformation of date and time data encoded as a string in a JSON document and represented locally as an `NSDate` attribute of an `NSObject` or `NSManagedObject` derived class. RKValueTransformers provides a simple, well-designed API for generalizing and simplifying the task of handling an arbitrarily complex set of value transformation requirements for your iOS or Mac OS X application.
 
 Value transformation is a core feature of [RestKit](http://github.com/RestKit/RestKit) and RKValueTransformers was extracted from the parent project to benefit the larger Cocoa development community. If you are looking for a comprehensive solution for your RESTful API needs then be sure to give RestKit a closer look.
 
@@ -25,12 +27,15 @@ RKValueTransformers is a "batteries included" library that ships with value tran
   * `NSNull` <-> `nil`
   * Any class conforming to `NSCoding` <-> `NSData`
   * UNIX Time Interval encoded as `NSNumber` or `NSString` <-> `NSDate`
-  * ISO 8601 Timestamp strings <-> `NSDate` (only complete timestamps for years < 2038 are supported)
+  * ISO 8601 Timestamp strings <-> `NSDate` (Only supports complete timestamp strings. On 32 bit systems such as iOS devices pre-iPhone 5s only years < 2038 are supported)
   * Any object implementing `stringValue` -> `NSString`
   * Any singular object to a collection (`NSArray`, `NSSet`, `NSOrderedSet` and their mutable counterparts)
   * Any object and an `NSDictionary` (object becomes a key for empty nested dictionary)
   * Any class conforming to `NSMutableCoding` -> mutable representation of itself
-  * `NSString` <-> `NSDate` via `NSDateFormatter`
+  * `NSString` <-> `NSDate` via `NSDateFormatter`. Default formats include:
+  	* RFC 1123 format
+    * RFC 850 format
+    * ANSI C's asctime() format
   * `NSString` <-> `NSNumber` via `NSNumberFormatter`
 * Lightweight. Implemented in a single pair or header and implementation files.
 * Fully unit tested and documented.
@@ -98,7 +103,7 @@ RKValueTransformers supports the creation of ad-hoc value transformer instances 
 ```objc
 RKValueTransformer *uppercaseStringTransformer = [RKBlockValueTransformer valueTransformerWithValidationBlock:^BOOL(__unsafe_unretained Class sourceClass, __unsafe_unretained Class destinationClass) {
         // We transform a `NSString` into another `NSString`
-        return ([sourceClass isSubclassOfClass:[NSString class]] && [destinationClass isSubclassOfClass:[NSURL class]]);
+        return ([sourceClass isSubclassOfClass:[NSString class]] && [destinationClass isSubclassOfClass:[NSString class]]);
     } transformationBlock:^BOOL(id inputValue, __autoreleasing id *outputValue, Class outputValueClass, NSError *__autoreleasing *error) {
     	// Validate the input and output
         RKValueTransformerTestInputValueIsKindOfClass(inputValue, [NSString class], error);

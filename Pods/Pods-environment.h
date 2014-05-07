@@ -10,7 +10,7 @@
 #define COCOAPODS_POD_AVAILABLE_AFNetworking
 #define COCOAPODS_VERSION_MAJOR_AFNetworking 1
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
-#define COCOAPODS_VERSION_PATCH_AFNetworking 3
+#define COCOAPODS_VERSION_PATCH_AFNetworking 4
 
 // DVCoreDataFinders
 #define COCOAPODS_POD_AVAILABLE_DVCoreDataFinders
@@ -21,50 +21,50 @@
 // ISO8601DateFormatterValueTransformer
 #define COCOAPODS_POD_AVAILABLE_ISO8601DateFormatterValueTransformer
 #define COCOAPODS_VERSION_MAJOR_ISO8601DateFormatterValueTransformer 0
-#define COCOAPODS_VERSION_MINOR_ISO8601DateFormatterValueTransformer 5
+#define COCOAPODS_VERSION_MINOR_ISO8601DateFormatterValueTransformer 6
 #define COCOAPODS_VERSION_PATCH_ISO8601DateFormatterValueTransformer 0
 
 // RKValueTransformers
 #define COCOAPODS_POD_AVAILABLE_RKValueTransformers
 #define COCOAPODS_VERSION_MAJOR_RKValueTransformers 1
-#define COCOAPODS_VERSION_MINOR_RKValueTransformers 0
+#define COCOAPODS_VERSION_MINOR_RKValueTransformers 1
 #define COCOAPODS_VERSION_PATCH_RKValueTransformers 0
 
 // RestKit
 #define COCOAPODS_POD_AVAILABLE_RestKit
 #define COCOAPODS_VERSION_MAJOR_RestKit 0
-#define COCOAPODS_VERSION_MINOR_RestKit 21
-#define COCOAPODS_VERSION_PATCH_RestKit 0
+#define COCOAPODS_VERSION_MINOR_RestKit 23
+#define COCOAPODS_VERSION_PATCH_RestKit 1
 
 // RestKit/Core
 #define COCOAPODS_POD_AVAILABLE_RestKit_Core
 #define COCOAPODS_VERSION_MAJOR_RestKit_Core 0
-#define COCOAPODS_VERSION_MINOR_RestKit_Core 21
-#define COCOAPODS_VERSION_PATCH_RestKit_Core 0
+#define COCOAPODS_VERSION_MINOR_RestKit_Core 23
+#define COCOAPODS_VERSION_PATCH_RestKit_Core 1
 
 // RestKit/CoreData
 #define COCOAPODS_POD_AVAILABLE_RestKit_CoreData
 #define COCOAPODS_VERSION_MAJOR_RestKit_CoreData 0
-#define COCOAPODS_VERSION_MINOR_RestKit_CoreData 21
-#define COCOAPODS_VERSION_PATCH_RestKit_CoreData 0
+#define COCOAPODS_VERSION_MINOR_RestKit_CoreData 23
+#define COCOAPODS_VERSION_PATCH_RestKit_CoreData 1
 
 // RestKit/Network
 #define COCOAPODS_POD_AVAILABLE_RestKit_Network
 #define COCOAPODS_VERSION_MAJOR_RestKit_Network 0
-#define COCOAPODS_VERSION_MINOR_RestKit_Network 21
-#define COCOAPODS_VERSION_PATCH_RestKit_Network 0
+#define COCOAPODS_VERSION_MINOR_RestKit_Network 23
+#define COCOAPODS_VERSION_PATCH_RestKit_Network 1
 
 // RestKit/ObjectMapping
 #define COCOAPODS_POD_AVAILABLE_RestKit_ObjectMapping
 #define COCOAPODS_VERSION_MAJOR_RestKit_ObjectMapping 0
-#define COCOAPODS_VERSION_MINOR_RestKit_ObjectMapping 21
-#define COCOAPODS_VERSION_PATCH_RestKit_ObjectMapping 0
+#define COCOAPODS_VERSION_MINOR_RestKit_ObjectMapping 23
+#define COCOAPODS_VERSION_PATCH_RestKit_ObjectMapping 1
 
 // RestKit/Support
 #define COCOAPODS_POD_AVAILABLE_RestKit_Support
 #define COCOAPODS_VERSION_MAJOR_RestKit_Support 0
-#define COCOAPODS_VERSION_MINOR_RestKit_Support 21
-#define COCOAPODS_VERSION_PATCH_RestKit_Support 0
+#define COCOAPODS_VERSION_MINOR_RestKit_Support 23
+#define COCOAPODS_VERSION_PATCH_RestKit_Support 1
 
 // SOCKit
 #define COCOAPODS_POD_AVAILABLE_SOCKit
@@ -76,11 +76,11 @@
 #define COCOAPODS_POD_AVAILABLE_SSKeychain
 #define COCOAPODS_VERSION_MAJOR_SSKeychain 1
 #define COCOAPODS_VERSION_MINOR_SSKeychain 2
-#define COCOAPODS_VERSION_PATCH_SSKeychain 1
+#define COCOAPODS_VERSION_PATCH_SSKeychain 2
 
 // TransitionKit
 #define COCOAPODS_POD_AVAILABLE_TransitionKit
-#define COCOAPODS_VERSION_MAJOR_TransitionKit 1
+#define COCOAPODS_VERSION_MAJOR_TransitionKit 2
 #define COCOAPODS_VERSION_MINOR_TransitionKit 1
-#define COCOAPODS_VERSION_PATCH_TransitionKit 1
+#define COCOAPODS_VERSION_PATCH_TransitionKit 0
 

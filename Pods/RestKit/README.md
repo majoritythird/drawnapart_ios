@@ -1,8 +1,8 @@
 # RestKit
 
 [![Build Status](https://travis-ci.org/RestKit/RestKit.png?branch=master,development)](https://travis-ci.org/RestKit/RestKit)
-![Pod Version](http://cocoapod-badges.herokuapp.com/v/RestKit/badge.png)
-![Pod Platform](http://cocoapod-badges.herokuapp.com/p/RestKit/badge.png)
+![Pod Version](https://cocoapod-badges.herokuapp.com/v/RestKit/badge.png)
+![Pod Platform](https://cocoapod-badges.herokuapp.com/p/RestKit/badge.png)
 [![Visit our IRC channel](https://kiwiirc.com/buttons/irc.freenode.net/RestKit.png)](https://kiwiirc.com/client/irc.freenode.net/?nick=rkuser|?&theme=basic#RestKit)
 
 RestKit is a modern Objective-C framework for implementing RESTful web services clients on iOS and Mac OS X. It provides a powerful [object mapping](https://github.com/RestKit/RestKit/wiki/Object-mapping) engine that seamlessly integrates with [Core Data](http://developer.apple.com/library/mac/#documentation/cocoa/Conceptual/CoreData/cdProgrammingGuide.html) and a simple set of networking primitives for mapping HTTP requests and responses built on top of [AFNetworking](https://github.com/AFNetworking/AFNetworking). It has an elegant, carefully designed set of APIs that make accessing and modeling RESTful resources feel almost magical. For example, here's how to access the Twitter public timeline and turn the JSON contents into an array of Tweet objects:
@@ -77,11 +77,11 @@ RestKit is broken into several modules that cleanly separate the mapping engine 
     <td>Specifies a flexible mapping in which the decision about which <tt>RKObjectMapping</tt> is to be used to process a given document is deferred to run time.</td>
   </tr>
   <tr>
-    <td><a href="http://restkit.org/api/latest/Classes/RKObjectMapper.html">RKObjectMapper</a></td>
-    <td>Provides an interface for mapping a parsed document into a set of local domain objects.</td>
+    <td><a href="http://restkit.org/api/latest/Classes/RKMapperOperation.html">RKMapperOperation</a></td>
+    <td>Provides an interface for mapping a deserialized document into a set of local domain objects.</td>
   </tr>
   <tr>
-    <td><a href="http://restkit.org/api/latest/Classes/RKObjectMappingOperation.html">RKObjectMappingOperation</a></td>
+    <td><a href="http://restkit.org/api/latest/Classes/RKMappingOperation.html">RKMappingOperation</a></td>
     <td>An <tt>NSOperation</tt> that performs a mapping between object representations using an <tt>RKObjectMapping</tt>.</td>
   </tr>  
   <tr><th colspan="2" style="text-align:center;"><a href="Code/Network/README.md">Networking</a></th></tr>
@@ -269,17 +269,19 @@ RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWith
 ### Centralize Configuration in an Object Manager
 ``` objective-c
 // Set up Article and Error Response Descriptors
+// Successful JSON looks like {"article": {"title": "My Article", "author": "Blake", "body": "Very cool!!"}}
 RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[Article class]];
 [mapping addAttributeMappingsFromArray:@[@"title", @"author", @"body"]];
 NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
 RKResponseDescriptor *articleDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:@"/articles" keyPath:@"article" statusCodes:statusCodes];
 
+// Error JSON looks like {"errors": "Some Error Has Occurred"}
 RKObjectMapping *errorMapping = [RKObjectMapping mappingForClass:[RKErrorMessage class]];
 // The entire value at the source key path containing the errors maps to the message
-[errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"message"]];
+[errorMapping addPropertyMapping:[RKAttributeMapping attributeMappingFromKeyPath:nil toKeyPath:@"errorMessage"]];
 NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError);
 // Any response in the 4xx status code range with an "errors" key path uses this mapping
-RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:@"errors" statusCodes:statusCodes];
+RKResponseDescriptor *errorDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:errorMapping method:RKRequestMethodAny pathPattern:nil keyPath:@"errors" statusCodes:statusCodes];
 
 // Add our descriptors to the manager
 RKObjectManager *manager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:@"http://restkit.org"]];
@@ -398,7 +400,7 @@ Article *article = [Article new];
 UIImage *image = [UIImage imageNamed:@"some_image.png"];
 
 // Serialize the Article attributes then attach a file
-NSMutableURLRequest *request = [[RKObjectManager sharedManager] multipartFormRequestForObject:article method:RKRequestMethodPOST path:nil parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+NSMutableURLRequest *request = [[RKObjectManager sharedManager] multipartFormRequestWithObject:article method:RKRequestMethodPOST path:nil parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     [formData appendPartWithFileData:UIImagePNGRepresentation(image)
                                 name:@"article[image]"
                             fileName:@"photo.png"

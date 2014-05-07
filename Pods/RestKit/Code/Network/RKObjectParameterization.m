@@ -105,7 +105,7 @@
 {
     id transformedValue = nil;
     if ([value isKindOfClass:[NSDate class]]) {
-        [mapping.objectMapping.valueTransformer transformValue:value toValue:&transformedValue ofClass:[NSString class] error:nil];
+        [mapping.valueTransformer transformValue:value toValue:&transformedValue ofClass:[NSString class] error:nil];
     } else if ([value isKindOfClass:[NSDecimalNumber class]]) {
         // Precision numbers are serialized as strings to work around Javascript notation limits
         transformedValue = [(NSDecimalNumber *)value stringValue];
@@ -115,6 +115,9 @@
     } else if ([value isKindOfClass:[NSOrderedSet class]]) {
         // NSOrderedSets are not natively serializable, so let's just turn it into an NSArray
         transformedValue = [value array];
+    } else if (value == nil) {
+        // Serialize nil values as null
+        transformedValue = [NSNull null];
     } else {
         Class propertyClass = RKPropertyInspectorGetClassForPropertyAtKeyPathOfObject(mapping.sourceKeyPath, operation.sourceObject);
         if ([propertyClass isSubclassOfClass:NSClassFromString(@"__NSCFBoolean")] || [propertyClass isSubclassOfClass:NSClassFromString(@"NSCFBoolean")]) {

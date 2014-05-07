@@ -158,7 +158,7 @@ static BOOL RKDeleteInvalidNewManagedObject(NSManagedObject *managedObject)
     [self.managedObjectContext performBlockAndWait:^{
         NSMutableSet *objectsToDelete = [NSMutableSet set];
         for (RKEntityMapping *entityMapping in self.entityMappings) {
-            NSFetchRequest *fetchRequest = [NSFetchRequest alloc];
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             [fetchRequest setEntity:entityMapping.entity];
             [fetchRequest setPredicate:entityMapping.deletionPredicate];
             NSError *error = nil;
@@ -455,6 +455,7 @@ extern NSString * const RKObjectMappingNestingAttributeKeyName;
     
     RKPropertyMapping *propertyMappingForModificationKey = [[(RKEntityMapping *)mappingOperation.mapping propertyMappingsByDestinationKeyPath] objectForKey:modificationKey];
     id rawValue = [[mappingOperation sourceObject] valueForKeyPath:propertyMappingForModificationKey.sourceKeyPath];
+    if (! rawValue) return NO;
     Class attributeClass = [entityMapping classForProperty:propertyMappingForModificationKey.destinationKeyPath];
 
     id transformedValue = nil;

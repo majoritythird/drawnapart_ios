@@ -66,9 +66,11 @@ static RKSourceToDesinationKeyTransformationBlock defaultSourceToDestinationKeyT
     RKObjectMapping *inverseMapping = [self.invertedMappings objectForKey:dictionaryKey];
     if (inverseMapping) return inverseMapping;
     
-    inverseMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+    inverseMapping = [RKObjectMapping requestMapping];
     [self.invertedMappings setObject:inverseMapping forKey:dictionaryKey];
     [inverseMapping copyPropertiesFromMapping:mapping];
+    // We want to serialize `nil` values
+    inverseMapping.assignsDefaultValueForMissingAttributes = YES;
     
     for (RKAttributeMapping *attributeMapping in mapping.attributeMappings) {
         if (predicate && !predicate(attributeMapping)) continue;
@@ -126,15 +128,19 @@ static RKSourceToDesinationKeyTransformationBlock defaultSourceToDestinationKeyT
     }
 
     // TODO: Hook up value transformers from `RKObjectParameterization`
-
-    return [self mappingForClass:[NSMutableDictionary class]];
+    RKObjectMapping *objectMapping = [self mappingForClass:[NSMutableDictionary class]];
+    objectMapping.assignsDefaultValueForMissingAttributes = YES;
+    return objectMapping;
 }
 
 + (void)initialize
 {
-    // Add an ISO8601DateFormatter to the transformation stack for backwards compatibility
-    RKISO8601DateFormatter *dateFormatter = [RKISO8601DateFormatter defaultISO8601DateFormatter];
-    [[RKValueTransformer defaultValueTransformer] insertValueTransformer:dateFormatter atIndex:0];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // Add an ISO8601DateFormatter to the transformation stack for backwards compatibility
+        RKISO8601DateFormatter *dateFormatter = [RKISO8601DateFormatter defaultISO8601DateFormatter];
+        [[RKValueTransformer defaultValueTransformer] insertValueTransformer:dateFormatter atIndex:0];
+    });
 }
 
 - (id)initWithClass:(Class)objectClass
