@@ -1,4 +1,4 @@
-platform :ios, :deployment_target => '6.0'
+platform :ios, :deployment_target => '7.0'
 
 xcodeproj 'Budgee.xcodeproj'
 
