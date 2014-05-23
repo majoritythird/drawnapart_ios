@@ -77,8 +77,8 @@ module DrawnApart
 
     def self.testflight(params)
       say_ok "Distributing to TestFlight..."
-      unless ENV['MT_TF_API_TOKEN'] and ENV['MT_TF_TEAM_TOKEN']
-        puts "Please define the environment variables MT_TF_TEAM_TOKEN and MT_TF_API_TOKEN".red
+      unless ENV['MT_TF_API_TOKEN'] and ENV['MT_TF_DRAWNAPART_TEAM_TOKEN']
+        puts "Please define the environment variables MT_TF_DRAWNAPART_TEAM_TOKEN and MT_TF_API_TOKEN".red
         puts "\nTo get the team token, go to https://testflightapp.com/dashboard/team/edit/"
         puts "\nTo get the API token, go to https://testflightapp.com/account/#api"
         abort
@@ -87,7 +87,7 @@ module DrawnApart
       say_error "You have local changes. Please commit your changes before building." and abort if self.local_changes?
 
       out = "/tmp/mt_lastbuild.log"
-      invocation = %Q(ipa distribute --lists "Betas" #{params[:notify] ? '--notify' : ''} --replace --api_token #{ENV['MT_TF_API_TOKEN']} --team_token #{ENV['MT_TF_TEAM_TOKEN']} --notes "#{params[:notes]}" --file "#{latest_ipa}" >> #{out} 2>&1)
+      invocation = %Q(ipa distribute --lists "Betas" #{params[:notify] ? '--notify' : ''} --replace --api_token #{ENV['MT_TF_API_TOKEN']} --team_token #{ENV['MT_TF_DRAWNAPART_TEAM_TOKEN']} --notes "#{params[:notes]}" --file "#{latest_ipa}" >> #{out} 2>&1)
       puts ".ipa destination: ".bold + "#{latest_ipa}"
       puts "Invocation: ".bold + "#{invocation}\n"
 
