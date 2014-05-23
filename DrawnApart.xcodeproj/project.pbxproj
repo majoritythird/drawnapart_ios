@@ -15,7 +15,6 @@
 		DE002F22192FB64D003FF315 /* CredentialFormValueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F1B192FB64D003FF315 /* CredentialFormValueObject.m */; };
 		DE002F23192FB64D003FF315 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F1D192FB64D003FF315 /* Person.m */; };
 		DE002F24192FB64D003FF315 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F1F192FB64D003FF315 /* User.m */; };
-		DE002F2B192FB66D003FF315 /* DrawnApart-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE002F25192FB66D003FF315 /* DrawnApart-Info.plist */; };
 		DE002F2D192FB66D003FF315 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F2A192FB66D003FF315 /* main.m */; };
 		DE002F30192FB682003FF315 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE002F2E192FB682003FF315 /* InfoPlist.strings */; };
 		DE002F3A192FB69D003FF315 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F32192FB69D003FF315 /* HomeViewController.m */; };
@@ -27,6 +26,7 @@
 		DE3EFC4D192FBA0600899FCE /* DrawnApartTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE5927CA18105C24000B8931 /* DrawnApartTests-Info.plist */; };
 		DE3EFC50192FBA1000899FCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3EFC4E192FBA1000899FCE /* InfoPlist.strings */; };
 		DE3EFC53192FBED800899FCE /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3EFC52192FBED800899FCE /* Build.m */; };
+		DE3EFC56192FC0D200899FCE /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3EFC55192FC0D200899FCE /* Analytics.m */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
 		DE5927A618105C23000B8931 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A518105C23000B8931 /* CoreGraphics.framework */; };
 		DE5927A818105C23000B8931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A718105C23000B8931 /* UIKit.framework */; };
@@ -84,6 +84,8 @@
 		DE3EFC4F192FBA1000899FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE3EFC51192FBED800899FCE /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
 		DE3EFC52192FBED800899FCE /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
+		DE3EFC54192FC0D200899FCE /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		DE3EFC55192FC0D200899FCE /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
 		DE5927A018105C23000B8931 /* DrawnApart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawnApart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927A318105C23000B8931 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE5927A518105C23000B8931 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -223,6 +225,8 @@
 		DE6952AD18109475007C5C76 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DE3EFC54192FC0D200899FCE /* Analytics.h */,
+				DE3EFC55192FC0D200899FCE /* Analytics.m */,
 				DE002F10192FB62B003FF315 /* ApiClient.h */,
 				DE002F11192FB62B003FF315 /* ApiClient.m */,
 				DE3EFC51192FBED800899FCE /* Build.h */,
@@ -329,7 +333,6 @@
 			files = (
 				DE002F3D192FB69D003FF315 /* SignInViewController.xib in Resources */,
 				DE002F30192FB682003FF315 /* InfoPlist.strings in Resources */,
-				DE002F2B192FB66D003FF315 /* DrawnApart-Info.plist in Resources */,
 				DE5927BB18105C23000B8931 /* Images.xcassets in Resources */,
 				DE002F3F192FB69D003FF315 /* SignUpViewController.xib in Resources */,
 				DE002F3B192FB69D003FF315 /* HomeViewController.xib in Resources */,
@@ -396,6 +399,7 @@
 				DE3EFC53192FBED800899FCE /* Build.m in Sources */,
 				DE002F22192FB64D003FF315 /* CredentialFormValueObject.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
+				DE3EFC56192FC0D200899FCE /* Analytics.m in Sources */,
 				DE002F2D192FB66D003FF315 /* main.m in Sources */,
 				DE002F3E192FB69D003FF315 /* SignUpViewController.m in Sources */,
 				DE002F14192FB62B003FF315 /* ApiClient.m in Sources */,

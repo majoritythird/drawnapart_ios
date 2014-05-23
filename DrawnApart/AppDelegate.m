@@ -71,7 +71,14 @@
 
   [self.window makeKeyAndVisible];
 
+  [[Analytics sharedInstance] trackAppLaunched];
+
   return YES;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+  [[Analytics sharedInstance] trackAppActivated];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

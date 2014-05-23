@@ -24,4 +24,8 @@
   #import "Person.h"
   #import "User.h"
 
+  // Other
+  #import "Analytics.h"
+  #import "Build.h"
+
 #endif
