@@ -1,0 +1,82 @@
+// DO NOT EDIT. This file is machine-generated and constantly overwritten.
+// Make changes to <$managedObjectClassName$>.h instead.
+
+#import <CoreData/CoreData.h>
+<$if hasCustomSuperentity$><$if hasSuperentity$>#import "<$customSuperentity$>.h"
+<$else$><$if hasCustomBaseCaseImport$>#import <$baseClassImport$><$else$>#import "<$customSuperentity$>.h"<$endif$><$endif$><$endif$>
+
+<$foreach Relationship noninheritedRelationships do$>@class <$Relationship.destinationEntity.managedObjectClassName$>;
+<$endforeach do$>
+<$foreach Attribute noninheritedAttributes do$>
+<$if Attribute.hasTransformableAttributeType$>
+<$if Attribute.objectAttributeTransformableProtocols$>
+<$foreach Protocol Attribute.objectAttributeTransformableProtocols do$>@protocol <$Protocol$>;
+<$endforeach do$>
+<$else$>@class <$Attribute.objectAttributeClassName$>;<$endif$><$endif$>
+<$endforeach do$>
+
+@interface _<$managedObjectClassName$> : <$customSuperentity$> {}
+
+<$foreach Attribute noninheritedAttributes do$>
+<$if Attribute.hasDefinedAttributeType$>
+<$if TemplateVar.arc$>
+<$if Attribute.isReadonly$>
+@property (nonatomic, strong, readonly) <$Attribute.objectAttributeType$> <$Attribute.name$>;
+<$else$>
+@property (nonatomic, strong) <$Attribute.objectAttributeType$> <$Attribute.name$>;
+<$endif$>
+<$else$>
+<$if Attribute.isReadonly$>
+@property (nonatomic, retain, readonly) <$Attribute.objectAttributeType$> <$Attribute.name$>;
+<$else$>
+@property (nonatomic, retain) <$Attribute.objectAttributeType$> <$Attribute.name$>;
+<$endif$>
+<$endif$>
+<$endif$>
+<$endforeach do$>
+<$foreach Relationship noninheritedRelationships do$>
+<$if Relationship.isToMany$>
+<$if TemplateVar.arc$>
+@property (nonatomic, strong) <$Relationship.immutableCollectionClassName$> *<$Relationship.name$>;
+<$else$>
+@property (nonatomic, retain) <$Relationship.immutableCollectionClassName$> *<$Relationship.name$>;
+<$endif$>
+<$else$>
+<$if TemplateVar.arc$>
+@property (nonatomic, strong) <$Relationship.destinationEntity.managedObjectClassName$> *<$Relationship.name$>;
+<$else$>
+@property (nonatomic, retain) <$Relationship.destinationEntity.managedObjectClassName$> *<$Relationship.name$>;
+<$endif$>
+<$endif$>
+<$endforeach do$>
+<$foreach FetchRequest prettyFetchRequests do$>
+<$if FetchRequest.singleResult$>
++ (id)fetch<$FetchRequest.name.initialCapitalString$>:(NSManagedObjectContext*)moc_ <$foreach Binding FetchRequest.bindings do2$><$Binding.name$>:(<$Binding.type$>)<$Binding.name$>_ <$endforeach do2$>;
++ (id)fetch<$FetchRequest.name.initialCapitalString$>:(NSManagedObjectContext*)moc_ <$foreach Binding FetchRequest.bindings do2$><$Binding.name$>:(<$Binding.type$>)<$Binding.name$>_ <$endforeach do2$>error:(NSError**)error_;
+<$else$>
++ (NSArray*)fetch<$FetchRequest.name.initialCapitalString$>:(NSManagedObjectContext*)moc_ <$foreach Binding FetchRequest.bindings do2$><$Binding.name$>:(<$Binding.type$>)<$Binding.name$>_ <$endforeach do2$>;
++ (NSArray*)fetch<$FetchRequest.name.initialCapitalString$>:(NSManagedObjectContext*)moc_ <$foreach Binding FetchRequest.bindings do2$><$Binding.name$>:(<$Binding.type$>)<$Binding.name$>_ <$endforeach do2$>error:(NSError**)error_;
+<$endif$>
+<$endforeach do$>
+<$foreach FetchedProperty noninheritedFetchedProperties do$>
+@property (nonatomic, readonly) NSArray *<$FetchedProperty.name$>;
+<$endforeach do$>
+<$if TemplateVar.frc$>
+#if TARGET_OS_IPHONE
+<$foreach Relationship noninheritedRelationships do$>
+<$if Relationship.isToMany$>
+- (NSFetchedResultsController*)new<$Relationship.name.initialCapitalString$>FetchedResultsControllerWithSortDescriptors:(NSArray*)sortDescriptors;
+<$endif$>
+<$endforeach do$>
+#endif
+<$endif$>
+@end
+
+<$foreach Relationship noninheritedRelationships do$><$if Relationship.isToMany$>
+@interface _<$managedObjectClassName$> (<$Relationship.name.initialCapitalString$>CoreDataGeneratedAccessors)
+- (void)add<$Relationship.name.initialCapitalString$>:(<$Relationship.immutableCollectionClassName$>*)value_;
+- (void)remove<$Relationship.name.initialCapitalString$>:(<$Relationship.immutableCollectionClassName$>*)value_;
+- (void)add<$Relationship.name.initialCapitalString$>Object:(<$Relationship.destinationEntity.managedObjectClassName$>*)value_;
+- (void)remove<$Relationship.name.initialCapitalString$>Object:(<$Relationship.destinationEntity.managedObjectClassName$>*)value_;
+@end
+<$endif$><$endforeach do$>
