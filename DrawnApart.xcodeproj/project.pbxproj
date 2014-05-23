@@ -85,7 +85,7 @@
 		DE3EFC52192FBED800899FCE /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 		DE3EFC54192FC0D200899FCE /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
 		DE3EFC55192FC0D200899FCE /* Analytics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Analytics.m; sourceTree = "<group>"; };
-		DE5927A018105C23000B8931 /* DrawnApart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawnApart.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE5927A018105C23000B8931 /* Drawn Apart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Drawn Apart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927A318105C23000B8931 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE5927A518105C23000B8931 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DE5927A718105C23000B8931 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -141,7 +141,7 @@
 		DE5927A118105C23000B8931 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DE5927A018105C23000B8931 /* DrawnApart.app */,
+				DE5927A018105C23000B8931 /* Drawn Apart.app */,
 				DE5927C018105C23000B8931 /* DrawnApartTests.xctest */,
 			);
 			name = Products;
@@ -271,7 +271,7 @@
 			);
 			name = DrawnApart;
 			productName = DrawnApart;
-			productReference = DE5927A018105C23000B8931 /* DrawnApart.app */;
+			productReference = DE5927A018105C23000B8931 /* Drawn Apart.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DE5927BF18105C23000B8931 /* DrawnApartTests */ = {
@@ -527,7 +527,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawnApart/DrawnApart-Prefix.pch";
 				INFOPLIST_FILE = "DrawnApart/DrawnApart-Info.plist";
-				PRODUCT_NAME = DrawnApart;
+				PRODUCT_NAME = "Drawn Apart";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -541,7 +541,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DrawnApart/DrawnApart-Prefix.pch";
 				INFOPLIST_FILE = "DrawnApart/DrawnApart-Info.plist";
-				PRODUCT_NAME = DrawnApart;
+				PRODUCT_NAME = "Drawn Apart";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
