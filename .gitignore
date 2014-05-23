@@ -1,5 +1,6 @@
 .DS_Store
 build/
+*.ipa
 lib/preprocessor_prefix.h
 lib/private_headers.h
 Pods/Documentation/
