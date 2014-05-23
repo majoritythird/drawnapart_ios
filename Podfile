@@ -5,5 +5,6 @@ xcodeproj 'DrawnApart.xcodeproj'
 inhibit_all_warnings!
 
 pod 'DVCoreDataFinders'
+pod 'Mixpanel'
 pod 'RestKit'
 pod 'SSKeychain'

@@ -3,6 +3,7 @@ PODS:
   - DVCoreDataFinders (0.5)
   - ISO8601DateFormatterValueTransformer (0.6.0):
     - RKValueTransformers (~> 1.1.0)
+  - Mixpanel (2.3.6)
   - RestKit (0.23.1):
     - RestKit/Core
   - RestKit/Core (0.23.1):
@@ -29,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - DVCoreDataFinders
+  - Mixpanel
   - RestKit
   - SSKeychain
 
@@ -36,6 +38,7 @@ SPEC CHECKSUMS:
   AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
   DVCoreDataFinders: ebc63037e6899455eead065b0017a8da68defa44
   ISO8601DateFormatterValueTransformer: a705384ea6531255258e25b6480ba1180db703a0
+  Mixpanel: 9aba38257fc4d2777ab5db1afc55e22bdfd57a4a
   RestKit: 0b5f1bbc43b81beba158262a1adae48ac062eb1e
   RKValueTransformers: b705e7b4651b9206b94600408462b74554bba969
   SOCKit: d8d0dd3688ae1026c12367570da8fa8e1a6980fb

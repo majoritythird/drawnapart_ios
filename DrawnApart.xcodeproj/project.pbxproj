@@ -26,6 +26,7 @@
 		DE002F3F192FB69D003FF315 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE002F39192FB69D003FF315 /* SignUpViewController.xib */; };
 		DE3EFC4D192FBA0600899FCE /* DrawnApartTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE5927CA18105C24000B8931 /* DrawnApartTests-Info.plist */; };
 		DE3EFC50192FBA1000899FCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3EFC4E192FBA1000899FCE /* InfoPlist.strings */; };
+		DE3EFC53192FBED800899FCE /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3EFC52192FBED800899FCE /* Build.m */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
 		DE5927A618105C23000B8931 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A518105C23000B8931 /* CoreGraphics.framework */; };
 		DE5927A818105C23000B8931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A718105C23000B8931 /* UIKit.framework */; };
@@ -81,6 +82,8 @@
 		DE002F38192FB69D003FF315 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = DrawnApart/SignUpViewController.m; sourceTree = SOURCE_ROOT; };
 		DE002F39192FB69D003FF315 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = DrawnApart/SignUpViewController.xib; sourceTree = SOURCE_ROOT; };
 		DE3EFC4F192FBA1000899FCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DE3EFC51192FBED800899FCE /* Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Build.h; sourceTree = "<group>"; };
+		DE3EFC52192FBED800899FCE /* Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Build.m; sourceTree = "<group>"; };
 		DE5927A018105C23000B8931 /* DrawnApart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawnApart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5927A318105C23000B8931 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE5927A518105C23000B8931 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +225,8 @@
 			children = (
 				DE002F10192FB62B003FF315 /* ApiClient.h */,
 				DE002F11192FB62B003FF315 /* ApiClient.m */,
+				DE3EFC51192FBED800899FCE /* Build.h */,
+				DE3EFC52192FBED800899FCE /* Build.m */,
 				DE002F12192FB62B003FF315 /* CredentialManager.h */,
 				DE002F13192FB62B003FF315 /* CredentialManager.m */,
 			);
@@ -388,6 +393,7 @@
 				DE002F15192FB62B003FF315 /* CredentialManager.m in Sources */,
 				DE5927B918105C23000B8931 /* DrawnApart.xcdatamodeld in Sources */,
 				DE002F3A192FB69D003FF315 /* HomeViewController.m in Sources */,
+				DE3EFC53192FBED800899FCE /* Build.m in Sources */,
 				DE002F22192FB64D003FF315 /* CredentialFormValueObject.m in Sources */,
 				DE5927B618105C23000B8931 /* AppDelegate.m in Sources */,
 				DE002F2D192FB66D003FF315 /* main.m in Sources */,
