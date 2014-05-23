@@ -70,6 +70,7 @@ namespace :mt do
   desc "Clean, archive, package, and distribute to TestFlight."
   task :testflight do
       notes = ask_editor "Release notes:\n\n"
+      %x(echo "#{notes}" | pbcopy)
       Rake::Task['mt:clean'].invoke 'Release'
       Rake::Task['mt:archive:beta'].invoke
       Rake::Task['mt:package'].invoke
@@ -80,6 +81,7 @@ namespace :mt do
     desc "Clean, archive, package, and distribute to TestFlight but do not send notification emails."
     task :quiet do
       notes = ask_editor "Release notes:\n\n"
+      %x(echo "#{notes}" | pbcopy)
       Rake::Task['mt:clean'].invoke 'Release'
       Rake::Task['mt:archive:beta'].invoke
       Rake::Task['mt:package'].invoke
