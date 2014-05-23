@@ -23,8 +23,6 @@
 		DE002F3D192FB69D003FF315 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE002F36192FB69D003FF315 /* SignInViewController.xib */; };
 		DE002F3E192FB69D003FF315 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE002F38192FB69D003FF315 /* SignUpViewController.m */; };
 		DE002F3F192FB69D003FF315 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE002F39192FB69D003FF315 /* SignUpViewController.xib */; };
-		DE3EFC4D192FBA0600899FCE /* DrawnApartTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE5927CA18105C24000B8931 /* DrawnApartTests-Info.plist */; };
-		DE3EFC50192FBA1000899FCE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3EFC4E192FBA1000899FCE /* InfoPlist.strings */; };
 		DE3EFC53192FBED800899FCE /* Build.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3EFC52192FBED800899FCE /* Build.m */; };
 		DE3EFC56192FC0D200899FCE /* Analytics.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3EFC55192FC0D200899FCE /* Analytics.m */; };
 		DE5927A418105C23000B8931 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A318105C23000B8931 /* Foundation.framework */; };
@@ -39,6 +37,7 @@
 		DE5927C418105C23000B8931 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A718105C23000B8931 /* UIKit.framework */; };
 		DE5927C518105C23000B8931 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5927A918105C23000B8931 /* CoreData.framework */; };
 		DE5927CF18105C24000B8931 /* DrawnApartTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE5927CE18105C24000B8931 /* DrawnApartTests.m */; };
+		DE7D8720192FC3D90048420A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE3EFC4E192FBA1000899FCE /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,8 +342,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE3EFC4D192FBA0600899FCE /* DrawnApartTests-Info.plist in Resources */,
-				DE3EFC50192FBA1000899FCE /* InfoPlist.strings in Resources */,
+				DE7D8720192FC3D90048420A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -481,6 +479,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Debug;
 		};
@@ -488,7 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -515,6 +514,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 			};
 			name = Release;
 		};
